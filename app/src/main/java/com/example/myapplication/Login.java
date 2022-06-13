@@ -81,7 +81,6 @@ public class Login extends AppCompatActivity {
 
     }
 
-
     private boolean validateEmail()
     {
         String email_address = email.getEditText().getText().toString();
