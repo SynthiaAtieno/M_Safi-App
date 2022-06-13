@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -15,8 +16,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.databinding.ActivityRegisterBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Register extends AppCompatActivity {
     Button regbtn;
@@ -53,12 +58,10 @@ public class Register extends AppCompatActivity {
                     progressDialog.dismiss();
                     return;
                 } else {
+                    createUser();
                     progressDialog.setMessage("Please wait...");
                     progressDialog.show();
                     progressDialog.setCanceledOnTouchOutside(false);
-                    Toast.makeText(Register.this, "Registered Successfully", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(Register.this, Login.class));
-                    finish();
                 }
 
             }
@@ -130,4 +133,27 @@ public class Register extends AppCompatActivity {
             return true;
         }
     }
+
+    private void createUser() {
+        String email_address = email.getEditText().getText().toString();
+        String password_filed = password.getEditText().getText().toString();
+        // String confirm_password = con_pass.getEditText().getText().toString();
+
+        mAuth.createUserWithEmailAndPassword(email_address, password_filed).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+
+                    Toast.makeText(Register.this, "Registration successfull", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(Register.this, Login.class));
+                    finish();
+                } else {
+                    Toast.makeText(Register.this, "Registration Failed" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+    }
+
+
 }

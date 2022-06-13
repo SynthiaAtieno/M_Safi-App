@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
@@ -13,14 +15,19 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
+    Toolbar toolbar;
     NavigationView navigationView;
     ActionBarDrawerToggle actionBarDrawerToggle;
+    FirebaseAuth mAuth;
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -38,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         drawerLayout = findViewById(R.id.drawer_layout);
+        mAuth = FirebaseAuth.getInstance();
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         AnimationDrawable animationDrawable= (AnimationDrawable) drawerLayout.getBackground();
         animationDrawable.setEnterFadeDuration(2500);
@@ -47,10 +57,14 @@ public class MainActivity extends AppCompatActivity {
 
 
         navigationView = findViewById(R.id.navigation_view);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout , R.string.menu_open,R.string.menu_close);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout ,toolbar, R.string.menu_open,R.string.menu_close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        if(savedInstanceState == null){
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                new HomeFragment()).commit();
+        navigationView.setCheckedItem(R.id.nav_home);}
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -58,37 +72,72 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId())
                 {
                     case R.id.nav_home:
-                        Log.i("MENU_DRAWER_ITEM", "Home item is clicked: ");
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                                new HomeFragment()).commit();
+
+                        //Log.i("MENU_DRAWER_ITEM", "Home item is clicked: ");
                         break;
 
                     case R.id.nav_search:
-                        Log.i("MENU_DRAWER_ITEM", "Search item is clicked: ");
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                                new SearchFragment()).commit();
+                        //Log.i("MENU_DRAWER_ITEM", "Search item is clicked: ");
                         break;
 
                     case R.id.nav_profile:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                                new ProfileFragment()).commit();
                         //Log.i("MENU_DRAWER_ITEM", "Profile item is clicked: ");
-                        startActivity(new Intent(MainActivity.this, Update_profile.class));
+                        //startActivity(new Intent(MainActivity.this, Update_profile.class));
                         break;
 
                     case R.id.nav_settings:
-                        Log.i("MENU_DRAWER_ITEM", "Setting item is clicked: ");
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                                new SettingsFragment()).commit();
+                        //Log.i("MENU_DRAWER_ITEM", "Setting item is clicked: ");
                         break;
 
                     case R.id.nav_share:
-                        Log.i("MENU_DRAWER_ITEM", "Share item is clicked: ");
+                        Toast.makeText(MainActivity.this, "Share", Toast.LENGTH_SHORT).show();
+                       // Log.i("MENU_DRAWER_ITEM", "Share item is clicked: ");
                         break;
 
                     case R.id.nav_donate:
-                        Log.i("MENU_DRAWER_ITEM", "Donate item is clicked: ");
+                        Toast.makeText(MainActivity.this, "Donate", Toast.LENGTH_SHORT).show();
+
+                        //Log.i("MENU_DRAWER_ITEM", "Donate item is clicked: ");
                         break;
 
                     case R.id.nav_login:
-                        Log.i("MENU_DRAWER_ITEM", "Logout item is clicked: ");
+                        mAuth.signOut();
+                        startActivity(new Intent(MainActivity.this, Login.class));
+                        finish();
+                        //Log.i("MENU_DRAWER_ITEM", "Logout item is clicked: ");
                         break;
                 }
+                drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }else
+        super.onBackPressed();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user==null)
+        {
+            startActivity(new Intent(MainActivity.this, Login.class));
+            finish();
+        }
     }
 }
