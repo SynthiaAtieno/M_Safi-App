@@ -78,9 +78,7 @@ public class Login extends AppCompatActivity {
                 passwordResetDialoq.setView(resetMail);
             }
         });
-
     }
-
     private boolean validateEmail()
     {
         String email_address = email.getEditText().getText().toString();

@@ -16,12 +16,14 @@ import android.widget.Toast;
 
 import com.example.myapplication.databinding.ActivityRegisterBinding;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Register extends AppCompatActivity {
-    ActivityRegisterBinding register;
     Button regbtn;
     TextView have_account;
     TextInputLayout email, password, con_pass;
+
+    private FirebaseAuth mAuth;
 
     ProgressDialog progressDialog;
 
@@ -36,13 +38,13 @@ public class Register extends AppCompatActivity {
         animationDrawable.start();
 
         progressDialog = new ProgressDialog(this);
+        mAuth = FirebaseAuth.getInstance();
 
         regbtn = findViewById(R.id.register_btn);
         have_account = findViewById(R.id.have_an_account);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         con_pass = findViewById(R.id.confirm_password);
-
 
         regbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,11 +82,11 @@ public class Register extends AppCompatActivity {
 
         if (email_address.isEmpty()) {
             email.setError("Please fill your email address");
-            email.setErrorEnabled(true);
+            email.requestFocus();
             return false;
         } else if (!email_address.matches(emailPattern)) {
             email.setError("Please enter a valid email address");
-            email.setErrorEnabled(true);
+            email.requestFocus();
             return false;
         } else {
             email.setError(null);
@@ -101,11 +103,11 @@ public class Register extends AppCompatActivity {
 
         if (password_filed.isEmpty()) {
             password.setError("Please fill your password");
-            password.setErrorEnabled(true);
+            password.requestFocus();
             return false;
         } else if (!password_filed.matches(PASSWORD_PATTERN)) {
             password.setError("Password must be at least 4 characters long, one uppercase, one letter and a symbol ");
-            password.setErrorEnabled(true);
+            password.requestFocus();
             return false;
         } else {
             password.setError(null);
@@ -121,7 +123,7 @@ public class Register extends AppCompatActivity {
 
         if (!password_filed.equals(confirm_password)) {
             con_pass.setError("Password does not match");
-            con_pass.setErrorEnabled(true);
+            con_pass.requestFocus();
             return false;
         } else {
             con_pass.setError(null);
