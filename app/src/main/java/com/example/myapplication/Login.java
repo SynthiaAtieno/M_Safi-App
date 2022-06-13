@@ -76,7 +76,6 @@ public class Login extends AppCompatActivity {
                 final AlertDialog.Builder passwordResetDialoq =new AlertDialog.Builder(view.getContext());
                 passwordResetDialoq.setTitle("Enter your Email To reset password");
                 passwordResetDialoq.setView(resetMail);
-
             }
         });
 
