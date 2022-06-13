@@ -77,8 +77,6 @@ public class Login extends AppCompatActivity {
                 passwordResetDialoq.setTitle("Enter your Email To reset password");
                 passwordResetDialoq.setView(resetMail);
 
-
-
             }
         });
 
