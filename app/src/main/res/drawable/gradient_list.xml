@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/login_backgroound"
+        android:duration="5000"
+        />
+
+    <item
+        android:drawable="@drawable/background2"
+        android:duration="5000"
+        />
+
+    <item
+        android:drawable="@drawable/background3"
+        android:duration="5000"
+        />
+
+    <item
+        android:drawable="@drawable/background4"
+        android:duration="5000"
+        />
+
+
+</animation-list>

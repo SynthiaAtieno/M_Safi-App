@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="menu_open">open</string>
+    <string name="menu_close">close</string>
+</resources>
