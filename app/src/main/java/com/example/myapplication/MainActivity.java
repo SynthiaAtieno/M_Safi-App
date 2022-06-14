@@ -1,7 +1,6 @@
 package com.example.myapplication;
 
 
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,16 +10,21 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.graphics.drawable.AnimationDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
@@ -32,8 +36,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        if (actionBarDrawerToggle.onOptionsItemSelected(item))
-        {
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -44,33 +47,35 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         drawerLayout = findViewById(R.id.drawer_layout);
         mAuth = FirebaseAuth.getInstance();
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        AnimationDrawable animationDrawable= (AnimationDrawable) drawerLayout.getBackground();
+        AnimationDrawable animationDrawable = (AnimationDrawable) drawerLayout.getBackground();
         animationDrawable.setEnterFadeDuration(2500);
         animationDrawable.setExitFadeDuration(5000);
         animationDrawable.start();
         //This is a comment
 
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         navigationView = findViewById(R.id.navigation_view);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout ,toolbar, R.string.menu_open,R.string.menu_close);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.menu_open, R.string.menu_close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
-        if(savedInstanceState == null){
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                new HomeFragment()).commit();
-        navigationView.setCheckedItem(R.id.nav_home);}
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new HomeFragment()).commit();
+            navigationView.setCheckedItem(R.id.nav_home);
+        }
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId())
-                {
+                switch (menuItem.getItemId()) {
                     case R.id.nav_home:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                                 new HomeFragment()).commit();
@@ -98,13 +103,28 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.nav_share:
-                        Toast.makeText(MainActivity.this, "Share", Toast.LENGTH_SHORT).show();
-                       // Log.i("MENU_DRAWER_ITEM", "Share item is clicked: ");
+
+                        Intent myIntent = new Intent(Intent.ACTION_SEND);
+                        myIntent.setType("text/plain");
+                        String shareBody = "Your body here";
+                        String sharesub = "Your Subject here";
+                        myIntent.putExtra(Intent.EXTRA_SUBJECT, sharesub);
+                        myIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                        startActivity(Intent.createChooser(myIntent, "Share Via"));
+
+
+                    /*    ApplicationInfo applicationInfo = getApplicationContext().getApplicationInfo();
+                        String apkPath = applicationInfo.sourceDir;
+                        Intent intent = new Intent(Intent.ACTION_SEND);
+                        intent.setType("app-debug.apk");
+                        intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(apkPath)));
+                        startActivity(Intent.createChooser(intent,"Share Via"));
+                        //Toast.makeText(MainActivity.this, "Share", Toast.LENGTH_SHORT).show();
+                       // Log.i("MENU_DRAWER_ITEM", "Share item is clicked: ");*/
                         break;
 
                     case R.id.nav_donate:
                         Toast.makeText(MainActivity.this, "Donate", Toast.LENGTH_SHORT).show();
-
                         //Log.i("MENU_DRAWER_ITEM", "Donate item is clicked: ");
                         break;
 
@@ -124,18 +144,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
-        }else
-        super.onBackPressed();
+        } else
+            super.onBackPressed();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         FirebaseUser user = mAuth.getCurrentUser();
-        if (user==null)
-        {
+        if (user == null) {
             startActivity(new Intent(MainActivity.this, Login.class));
             finish();
         }

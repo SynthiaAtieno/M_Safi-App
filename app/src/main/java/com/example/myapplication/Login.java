@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -58,15 +59,14 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 if (!validateEmail() | !validatePassword())
                 {
-                    return;
+                    progressDialog.dismiss();
                 }
                 else {
-                    loginUser();
 
                     progressDialog.setMessage("Please wait...");
                     progressDialog.show();
                     progressDialog.setCanceledOnTouchOutside(false);
-                    return;
+                    loginUser();
 
                 }
 
@@ -126,6 +126,8 @@ public class Login extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful())
                 {
+
+
                     Toast.makeText(Login.this, "Login Successfully", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(Login.this, MainActivity.class));
                     finish();
@@ -133,7 +135,7 @@ public class Login extends AppCompatActivity {
                 else
                 {
                     Toast.makeText(Login.this, "Login Failed"+task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                    progressDialog.dismiss();
+
                 }
             }
         });

@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myapplication">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -14,18 +16,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
-        <activity
-            android:name=".Update_profile"
-            android:exported="false" />
-        <activity
-            android:name=".Register"
-            android:exported="false" />
+         <activity
+         android:name=".Register"
+         android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-        <activity
-            android:name=".Login"
-            android:exported="false" />
+         <activity
+         android:name=".Login"
+         android:exported="false" />
         <activity
             android:name=".Splash_Screen"
             android:exported="true">

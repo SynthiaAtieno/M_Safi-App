@@ -8,6 +8,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -25,6 +26,7 @@ public class Splash_Screen extends AppCompatActivity {
         splash=ActivitySplashScreenBinding.inflate(getLayoutInflater());
         View view = splash.getRoot();
         setContentView(view);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -38,7 +40,7 @@ public class Splash_Screen extends AppCompatActivity {
                 logo.animate().translationY(1400).setDuration(1000).setStartDelay(4000);
                 textImage.animate().translationY(1400).setDuration(1000).setStartDelay(4000);
                 lottieAnimationView.animate().translationY(1400).setDuration(4000).setStartDelay(4000);
-                startActivity(new Intent(Splash_Screen.this, Register.class));
+                startActivity(new Intent(Splash_Screen.this, Login.class));
                 finish();
             }
         }, 6000);

@@ -12,15 +12,19 @@
         <entry key="..\:/Users/onden/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/login_backgroound.xml" value="0.22" />
         <entry key="..\:/Users/onden/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/onden/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_main.xml" value="0.14948453608247422" />
+        <entry key="..\:/Users/onden/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_main2.xml" value="0.1" />
         <entry key="..\:/Users/onden/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/Users/onden/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_splash_screen.xml" value="0.15" />
         <entry key="..\:/Users/onden/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_update_profile.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/onden/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_Add_profile.xml" value="0.1" />
         <entry key="..\:/Users/onden/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/onden/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_main.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/onden/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="..\:/Users/onden/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_search.xml" value="0.1" />
         <entry key="..\:/Users/onden/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_settings.xml" value="0.1" />
         <entry key="..\:/Users/onden/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_share.xml" value="0.1" />
         <entry key="..\:/Users/onden/AndroidStudioProjects/MyApplication/app/src/main/res/layout/header_menu.xml" value="0.1" />
+        <entry key="..\:/Users/onden/AndroidStudioProjects/MyApplication/app/src/main/res/layout/main_item.xml" value="0.1" />
         <entry key="..\:/Users/onden/AndroidStudioProjects/MyApplication/app/src/main/res/menu/menu_bar.xml" value="0.33" />
       </map>
     </option>
