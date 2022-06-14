@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
     <group android:checkableBehavior="single">
 
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/home"
             android:title="Home" />
-
-        <item
-            android:id="@+id/nav_search"
-            android:icon="@drawable/search"
-            android:title="Search" />
 
         <item
             android:id="@+id/nav_profile"
@@ -21,6 +19,11 @@
             android:id="@+id/nav_settings"
             android:icon="@drawable/settings"
             android:title="Settings" />
+        <item
+            android:id="@+id/nav_search"
+            android:icon="@drawable/search"
+            android:title="Search"
+           />
     </group>
 
     <group>
