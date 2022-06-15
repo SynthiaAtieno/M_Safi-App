@@ -4,7 +4,7 @@
     package="com.example.myapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -16,15 +16,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
-         <activity
-         android:name=".Register"
-         android:exported="false" />
+        <activity
+            android:name=".CreateProfile"
+            android:exported="false" />
+        <activity
+            android:name=".Welcome_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Register"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-         <activity
-         android:name=".Login"
-         android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
         <activity
             android:name=".Splash_Screen"
             android:exported="true">

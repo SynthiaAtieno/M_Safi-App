@@ -40,7 +40,7 @@ public class Splash_Screen extends AppCompatActivity {
                 logo.animate().translationY(1400).setDuration(1000).setStartDelay(4000);
                 textImage.animate().translationY(1400).setDuration(1000).setStartDelay(4000);
                 lottieAnimationView.animate().translationY(1400).setDuration(4000).setStartDelay(4000);
-                startActivity(new Intent(Splash_Screen.this, Login.class));
+                startActivity(new Intent(Splash_Screen.this, Welcome_Activity.class));
                 finish();
             }
         }, 6000);

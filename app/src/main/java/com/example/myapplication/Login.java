@@ -57,11 +57,12 @@ public class Login extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!validateEmail() | !validatePassword())
+                if ( !validatePassword() |!validateEmail() )
                 {
                     progressDialog.dismiss();
                 }
                 else {
+
 
                     progressDialog.setMessage("Please wait...");
                     progressDialog.show();
@@ -92,6 +93,7 @@ public class Login extends AppCompatActivity {
         }
         else {
             email.setError(null);
+            email.setErrorEnabled(false);
             return true;
 
         }
@@ -111,6 +113,7 @@ public class Login extends AppCompatActivity {
         else
         {
             password.setError(null);
+            password.setErrorEnabled(false);
             return true;
         }
 

@@ -54,7 +54,7 @@ public class Register extends AppCompatActivity {
         regbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!validateEmail() | !validatePassword() | !CheckPassword()) {
+                if ( !CheckPassword()| !validatePassword() | !validateEmail() ) {
                     progressDialog.dismiss();
                     return;
                 } else {
@@ -93,6 +93,7 @@ public class Register extends AppCompatActivity {
             return false;
         } else {
             email.setError(null);
+            email.setErrorEnabled(false);
             return true;
 
         }
@@ -114,6 +115,7 @@ public class Register extends AppCompatActivity {
             return false;
         } else {
             password.setError(null);
+            password.setErrorEnabled(false);
             return true;
         }
 
@@ -130,6 +132,7 @@ public class Register extends AppCompatActivity {
             return false;
         } else {
             con_pass.setError(null);
+            con_pass.setErrorEnabled(false);
             return true;
         }
     }
