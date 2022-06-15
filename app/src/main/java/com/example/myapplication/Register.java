@@ -25,7 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Register extends AppCompatActivity {
     Button regbtn;
-    TextView have_account;
+    TextView have_account, create_profile;
     TextInputLayout email, password, con_pass;
 
     private FirebaseAuth mAuth;
@@ -50,6 +50,15 @@ public class Register extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         con_pass = findViewById(R.id.confirm_password);
+        create_profile=findViewById(R.id.create_profile);
+
+        create_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),CreateProfile.class));
+                finish();
+            }
+        });
 
         regbtn.setOnClickListener(new View.OnClickListener() {
             @Override
