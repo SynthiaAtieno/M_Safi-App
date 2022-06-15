@@ -8,6 +8,14 @@
     android:background="@drawable/gradient_list"
     android:orientation="vertical"
     tools:context=".Login">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:text="Login to view workers"
+        android:textColor="@color/black"/>
 
     <ScrollView
         android:layout_width="match_parent"
