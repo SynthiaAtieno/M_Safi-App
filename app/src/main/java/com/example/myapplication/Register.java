@@ -59,7 +59,7 @@ public class Register extends AppCompatActivity {
                     return;
                 } else {
                     createUser();
-                    progressDialog.setMessage("Please wait...");
+                    progressDialog.setMessage("Signing up...");
                     progressDialog.show();
                     progressDialog.setCanceledOnTouchOutside(false);
                 }
@@ -73,6 +73,7 @@ public class Register extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(Register.this, Login.class));
                 finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
 
@@ -140,7 +141,6 @@ public class Register extends AppCompatActivity {
     private void createUser() {
         String email_address = email.getEditText().getText().toString();
         String password_filed = password.getEditText().getText().toString();
-        // String confirm_password = con_pass.getEditText().getText().toString();
 
         mAuth.createUserWithEmailAndPassword(email_address, password_filed).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override

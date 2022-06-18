@@ -64,7 +64,7 @@ public class Login extends AppCompatActivity {
                 else {
 
 
-                    progressDialog.setMessage("Please wait...");
+                       progressDialog.setMessage("Please wait...");
                     progressDialog.show();
                     progressDialog.setCanceledOnTouchOutside(false);
                     loginUser();

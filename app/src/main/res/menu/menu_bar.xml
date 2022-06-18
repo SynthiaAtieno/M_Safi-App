@@ -23,6 +23,8 @@
             android:id="@+id/nav_search"
             android:icon="@drawable/search"
             android:title="Search"
+            app:showAsAction="always"
+
            />
     </group>
 

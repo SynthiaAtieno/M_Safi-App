@@ -60,9 +60,6 @@ public class MainActivity extends AppCompatActivity {
         animationDrawable.setEnterFadeDuration(2500);
         animationDrawable.setExitFadeDuration(5000);
         animationDrawable.start();
-        //This is a comment
-
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         navigationView = findViewById(R.id.navigation_view);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.menu_open, R.string.menu_close);
@@ -83,26 +80,16 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                                 new HomeFragment()).commit();
 
-                        //Log.i("MENU_DRAWER_ITEM", "Home item is clicked: ");
                         break;
 
                     case R.id.nav_search:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                                 new SearchFragment()).commit();
-                        //Log.i("MENU_DRAWER_ITEM", "Search item is clicked: ");
-                        break;
-
-                    case R.id.nav_profile:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                                new ProfileFragment()).commit();
-                        //Log.i("MENU_DRAWER_ITEM", "Profile item is clicked: ");
-                        //startActivity(new Intent(MainActivity.this, Update_profile.class));
                         break;
 
                     case R.id.nav_settings:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                                 new SettingsFragment()).commit();
-                        //Log.i("MENU_DRAWER_ITEM", "Setting item is clicked: ");
                         break;
 
                     case R.id.nav_share:
@@ -114,28 +101,16 @@ public class MainActivity extends AppCompatActivity {
                         myIntent.putExtra(Intent.EXTRA_SUBJECT, sharesub);
                         myIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
                         startActivity(Intent.createChooser(myIntent, "Share Via"));
-
-
-                    /*    ApplicationInfo applicationInfo = getApplicationContext().getApplicationInfo();
-                        String apkPath = applicationInfo.sourceDir;
-                        Intent intent = new Intent(Intent.ACTION_SEND);
-                        intent.setType("app-debug.apk");
-                        intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(apkPath)));
-                        startActivity(Intent.createChooser(intent,"Share Via"));
-                        //Toast.makeText(MainActivity.this, "Share", Toast.LENGTH_SHORT).show();
-                       // Log.i("MENU_DRAWER_ITEM", "Share item is clicked: ");*/
                         break;
 
                     case R.id.nav_donate:
                         Toast.makeText(MainActivity.this, "Donate", Toast.LENGTH_SHORT).show();
-                        //Log.i("MENU_DRAWER_ITEM", "Donate item is clicked: ");
                         break;
 
                     case R.id.nav_login:
                         mAuth.signOut();
                         startActivity(new Intent(MainActivity.this, Login.class));
                         finish();
-                        //Log.i("MENU_DRAWER_ITEM", "Logout item is clicked: ");
                         break;
                 }
                 drawerLayout.closeDrawer(GravityCompat.START);
