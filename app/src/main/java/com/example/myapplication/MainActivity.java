@@ -53,13 +53,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         drawerLayout = findViewById(R.id.drawer_layout);
         mAuth = FirebaseAuth.getInstance();
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
+       // toolbar = findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
+/*
         AnimationDrawable animationDrawable = (AnimationDrawable) drawerLayout.getBackground();
         animationDrawable.setEnterFadeDuration(2500);
         animationDrawable.setExitFadeDuration(5000);
-        animationDrawable.start();
+        animationDrawable.start();*/
 
         navigationView = findViewById(R.id.navigation_view);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.menu_open, R.string.menu_close);
@@ -82,10 +82,10 @@ public class MainActivity extends AppCompatActivity {
 
                         break;
 
-                    case R.id.nav_search:
+                    /*case R.id.nav_search:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                                 new SearchFragment()).commit();
-                        break;
+                        break;*/
 
                     case R.id.nav_settings:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,

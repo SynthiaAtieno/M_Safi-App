@@ -42,6 +42,7 @@ public class Register extends AppCompatActivity {
         animationDrawable.setExitFadeDuration(5000);
         animationDrawable.start();
 
+
         progressDialog = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
 
@@ -57,6 +58,7 @@ public class Register extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),CreateProfile.class));
                 finish();
+                overridePendingTransition(R.anim.push_up_in, R.anim.push_down_in);
             }
         });
 

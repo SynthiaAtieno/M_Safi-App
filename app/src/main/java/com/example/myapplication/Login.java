@@ -52,6 +52,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(Login.this, Register.class));
                 finish();
+                overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_right);
             }
         });
         loginbtn.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +65,7 @@ public class Login extends AppCompatActivity {
                 else {
 
 
-                       progressDialog.setMessage("Please wait...");
+                    progressDialog.setMessage("Please wait...");
                     progressDialog.show();
                     progressDialog.setCanceledOnTouchOutside(false);
                     loginUser();
@@ -134,6 +135,7 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(Login.this, "Login Successfully", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(Login.this, MainActivity.class));
                     finish();
+                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 }
                 else
                 {
