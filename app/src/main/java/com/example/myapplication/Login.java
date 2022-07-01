@@ -33,11 +33,13 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        LinearLayout linearLayout= findViewById(R.id.main_layout);
+
+        /*LinearLayout linearLayout= findViewById(R.id.main_layout);
         AnimationDrawable animationDrawable= (AnimationDrawable) linearLayout.getBackground();
         animationDrawable.setEnterFadeDuration(2500);
         animationDrawable.setExitFadeDuration(5000);
-        animationDrawable.start();
+        animationDrawable.start();*/
+
         progressDialog= new ProgressDialog(this);
         mAuth=FirebaseAuth.getInstance();
 

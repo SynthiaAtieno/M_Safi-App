@@ -5,7 +5,6 @@
     android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_list"
     android:orientation="vertical"
     tools:context=".Login">
     <TextView
@@ -43,16 +42,16 @@
                 android:layout_marginTop="24dp"
                 android:hint="Email Address"
                 app:boxBackgroundMode="outline"
-                android:textColorHint="@color/white"
+                android:textColorHint="@color/black"
                 app:endIconMode="clear_text"
-                app:hintTextColor="@color/white"
+                app:hintTextColor="@color/black"
                 app:startIconDrawable="@drawable/email">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textEmailAddress"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,16 +62,16 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_marginTop="24dp"
                 android:hint="Enter password"
-                android:textColorHint="@color/white"
+                android:textColorHint="@color/black"
                 app:endIconMode="password_toggle"
-                app:hintTextColor="@color/white"
+                app:hintTextColor="@color/black"
                 app:startIconDrawable="@drawable/lock">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textPassword"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -83,7 +82,7 @@
                 android:layout_gravity="right"
                 android:layout_marginTop="16dp"
                 android:text="Forgot Password"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="16sp" />
 
 
@@ -104,7 +103,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
                 android:text="Don't have an account? Sign Up"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="16sp" />
         </LinearLayout>
 
