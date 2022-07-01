@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -84,7 +85,7 @@ public class Login extends AppCompatActivity {
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText resetMail = new EditText(view.getContext());
+                TextInputEditText resetMail = new TextInputEditText(view.getContext());
                 AlertDialog.Builder passwordReset = new AlertDialog.Builder(view.getContext());
                 passwordReset.setTitle("Reset Password");
                 passwordReset.setMessage("Enter Your Email To Receive Reset Link.");
