@@ -58,11 +58,11 @@ public class CreateProfile extends AppCompatActivity {
 
         progressDialog = new ProgressDialog(this);
 
-        LinearLayout linearLayout = findViewById(R.id.fragment_profile);
+       /* LinearLayout linearLayout = findViewById(R.id.fragment_profile);
         AnimationDrawable animationDrawable = (AnimationDrawable) linearLayout.getBackground();
         animationDrawable.setEnterFadeDuration(2500);
         animationDrawable.setExitFadeDuration(5000);
-        animationDrawable.start();
+        animationDrawable.start();*/
 
         select_image.setOnClickListener(new View.OnClickListener() {
             @Override
