@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="6dp"
+    android:elevation="10dp"
+    android:id="@+id/card_view"
+    app:cardUseCompatPadding="true"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:background="#C6FAF1F1"
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_centerVertical="true"
+            app:civ_border_width="2dp"
+            android:id="@+id/circle_image"
+            app:civ_border_color="@color/black"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Full Name"
+            android:textStyle="bold"
+            android:textSize="10sp"
+            android:layout_toEndOf="@+id/circle_image"
+            android:textColor="@color/black"
+            android:layout_marginStart="10dp"
+            android:id="@+id/full_name_text"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mobile number"
+            android:textSize="10sp"
+            android:layout_toEndOf="@+id/circle_image"
+            android:layout_below="@+id/full_name_text"
+            android:textColor="@color/black"
+            android:layout_marginStart="10dp"
+            android:id="@+id/mobile_text"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email Address"
+            android:textSize="10sp"
+            android:layout_toEndOf="@+id/circle_image"
+            android:layout_below="@+id/mobile_text"
+            android:textColor="@color/black"
+            android:layout_marginStart="10dp"
+            android:id="@+id/email_text"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Current Location"
+            android:textSize="10sp"
+            android:layout_toEndOf="@+id/circle_image"
+            android:layout_below="@+id/email_text"
+            android:textColor="@color/black"
+            android:layout_marginStart="10dp"
+            android:id="@+id/location_text"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Describe Yourself"
+            android:textSize="10sp"
+            android:layout_toEndOf="@+id/circle_image"
+            android:layout_below="@+id/location_text"
+            android:textColor="@color/black"
+            android:layout_marginStart="10dp"
+            android:id="@+id/desc_text"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
