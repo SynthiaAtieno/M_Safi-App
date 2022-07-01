@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:id="@+id/fragment_profile"
     android:gravity="center"
-    android:background="#187CCC"
+    android:background="#5E96C3"
     android:layout_height="match_parent">
     <!-- android:background="@drawable/gradient_list"-->
 
