@@ -175,6 +175,7 @@ public class Login extends AppCompatActivity {
                 {
                     Toast.makeText(Login.this, "Login Failed"+task.getException().getMessage(), Toast.LENGTH_LONG).show();
 
+                    progressDialog.dismiss();
                 }
             }
         });

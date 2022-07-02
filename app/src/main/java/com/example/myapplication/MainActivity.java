@@ -17,10 +17,15 @@ import android.os.Bundle;
 
 import android.view.MenuItem;
 
+import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
-
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,7 +36,10 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     Toolbar toolbar;
+    TextView verify_text;
+    Button verify_account;
     NavigationView navigationView;
+    FrameLayout frameLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     FirebaseAuth mAuth;
 
@@ -50,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         drawerLayout = findViewById(R.id.drawer_layout);
         mAuth = FirebaseAuth.getInstance();
+        verify_text = findViewById(R.id.verify_message);
+        verify_account = findViewById(R.id.verify_account);
+        frameLayout = findViewById(R.id.fragment_container);
        // toolbar = findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
 /*
@@ -69,6 +80,38 @@ public class MainActivity extends AppCompatActivity {
             navigationView.setCheckedItem(R.id.nav_home);
         }
 
+
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        if (!user.isEmailVerified())
+        {
+
+            verify_text.setVisibility(View.VISIBLE);
+            verify_account.setVisibility(View.VISIBLE);
+            navigationView.setVisibility(View.GONE);
+            frameLayout.setVisibility(View.GONE);
+
+
+            verify_account.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    user.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+
+                            Toast.makeText(MainActivity.this, "Verification Email has been sent to you", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+
+                            Toast.makeText(MainActivity.this, "Failed to send a verification email "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            });
+
+        }
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
