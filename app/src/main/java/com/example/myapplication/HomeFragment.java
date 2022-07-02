@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class HomeFragment extends Fragment {
@@ -34,6 +35,7 @@ public class HomeFragment extends Fragment {
     Toolbar toolbar;
     private SearchView searchView;
     private MenuItem menuItem;
+    FloatingActionButton actionButton;
     public HomeFragment(){
 
     }
@@ -56,6 +58,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         toolbar = view.findViewById(R.id.toolbar);
+        actionButton = view.findViewById(R.id.btnOpenDialog);
 
         AppCompatActivity activity= (AppCompatActivity) getActivity();
         activity.setSupportActionBar(toolbar);
@@ -99,6 +102,13 @@ public class HomeFragment extends Fragment {
             public boolean onQueryTextChange(String query) {
                 mysearch(query);
                 return true;
+            }
+        });
+
+        actionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
 

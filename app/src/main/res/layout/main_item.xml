@@ -15,67 +15,103 @@
         android:padding="15dp"
         android:background="#C6FAF1F1"
         >
+
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circle_image"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
             android:src="@mipmap/ic_launcher"
-            android:layout_centerVertical="true"
-            app:civ_border_width="2dp"
-            android:id="@+id/circle_image"
-            app:civ_border_color="@color/black"/>
+            app:civ_border_color="@color/black"
+            app:civ_border_width="2dp" />
 
         <TextView
+            android:id="@+id/full_name_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@+id/circle_image"
             android:text="Full Name"
-            android:textStyle="bold"
-            android:textSize="10sp"
-            android:layout_toEndOf="@+id/circle_image"
             android:textColor="@color/black"
-            android:layout_marginStart="10dp"
-            android:id="@+id/full_name_text"/>
+            android:textSize="10sp"
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/mobile_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mobile number"
-            android:textSize="10sp"
-            android:layout_toEndOf="@+id/circle_image"
             android:layout_below="@+id/full_name_text"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="6dp"
+            android:layout_toEndOf="@+id/circle_image"
+            android:text="Mobile number"
             android:textColor="@color/black"
-            android:layout_marginStart="10dp"
-            android:id="@+id/mobile_text"/>
+            android:textSize="10sp" />
 
         <TextView
+            android:id="@+id/email_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email Address"
-            android:textSize="10sp"
-            android:layout_toEndOf="@+id/circle_image"
             android:layout_below="@+id/mobile_text"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="6dp"
+            android:layout_toEndOf="@+id/circle_image"
+            android:text="Email Address"
             android:textColor="@color/black"
-            android:layout_marginStart="10dp"
-            android:id="@+id/email_text"/>
+            android:textSize="10sp" />
 
         <TextView
+            android:id="@+id/location_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Current Location"
-            android:textSize="10sp"
-            android:layout_toEndOf="@+id/circle_image"
             android:layout_below="@+id/email_text"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="6dp"
+            android:layout_toEndOf="@+id/circle_image"
+            android:text="Current Location"
             android:textColor="@color/black"
-            android:layout_marginStart="10dp"
-            android:id="@+id/location_text"/>
+            android:textSize="10sp" />
+
         <TextView
+            android:id="@+id/desc_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Describe Yourself"
-            android:textSize="10sp"
-            android:layout_toEndOf="@+id/circle_image"
             android:layout_below="@+id/location_text"
+            android:layout_marginTop="6dp"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@+id/circle_image"
+            android:text="Describe Yourself"
             android:textColor="@color/black"
-            android:layout_marginStart="10dp"
-            android:id="@+id/desc_text"/>
+            android:textSize="10sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/circle_image"
+            android:layout_marginTop="35dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/button_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_color"
+                android:text="Edit"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/button_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/btn_color"
+                android:text="Delete"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

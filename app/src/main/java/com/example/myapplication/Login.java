@@ -85,16 +85,20 @@ public class Login extends AppCompatActivity {
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextInputEditText resetMail = new TextInputEditText(view.getContext());
+            EditText resetMail = new EditText(view.getContext());
                 AlertDialog.Builder passwordReset = new AlertDialog.Builder(view.getContext());
                 passwordReset.setTitle("Reset Password");
                 passwordReset.setMessage("Enter Your Email To Receive Reset Link.");
                 passwordReset.setView(resetMail);
 
-                passwordReset.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                passwordReset.setPositiveButton("Reset", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String mail = resetMail.getText().toString();
+                        if (mail.isEmpty()){
+                            resetMail.setError("Please enter your email address");
+                            resetMail.requestFocus();
+                        }else
                         mAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
