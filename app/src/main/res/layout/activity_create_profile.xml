@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:id="@+id/fragment_profile"
     android:gravity="center"
-    android:background="#5E96C3"
+    android:background="@drawable/background4"
     android:layout_height="match_parent">
     <!-- android:background="@drawable/gradient_list"-->
 
@@ -18,7 +18,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
         android:text="Create Profile to join the team"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:src="@drawable/logo"
+                android:src="@drawable/usafi_logo"
                 android:layout_gravity="top"
                 android:layout_marginTop="24dp"
                 />
@@ -41,8 +41,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/full_name"
-                app:hintTextColor="@color/black"
-                android:textColorHint="@color/black"
+                app:hintTextColor="@color/white"
+                android:textColorHint="@color/white"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_marginTop="24dp"
                 android:hint="Full Name "
@@ -54,7 +54,7 @@
                     android:layout_height="match_parent"
                     android:textStyle="bold"
                     android:inputType="text"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/white"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,8 +63,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/phone"
-                app:hintTextColor="@color/black"
-                android:textColorHint="@color/black"
+                app:hintTextColor="@color/white"
+                android:textColorHint="@color/white"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_marginTop="24dp"
                 android:hint="Mobile"
@@ -77,15 +77,15 @@
                     android:textStyle="bold"
                     android:inputType="number"
                     android:maxLength="10"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/white"/>
 
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/email"
-                app:hintTextColor="@color/black"
-                android:textColorHint="@color/black"
+                app:hintTextColor="@color/white"
+                android:textColorHint="@color/white"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_marginTop="24dp"
                 android:hint="Email Address"
@@ -97,7 +97,7 @@
                     android:layout_height="match_parent"
                     android:textStyle="bold"
                     android:inputType="textEmailAddress"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/white"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,38 +105,38 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/location"
-                app:hintTextColor="@color/black"
-                android:textColorHint="@color/black"
+                app:hintTextColor="@color/white"
+                android:textColorHint="@color/white"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_marginTop="24dp"
                 app:endIconMode="clear_text"
                 android:hint="Current Location, Use your nearest center"
-                app:startIconDrawable="@drawable/ic_baseline_add_location_24"
+                app:startIconDrawable="@drawable/location"
                 >
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textLongMessage"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/white"/>
 
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/description"
-                app:hintTextColor="@color/black"
-                android:textColorHint="@color/black"
+                app:hintTextColor="@color/white"
+                android:textColorHint="@color/white"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_marginTop="24dp"
                 app:endIconMode="clear_text"
                 android:hint="Area of Interest eg Laundry"
-                app:startIconDrawable="@drawable/user"
+                app:startIconDrawable="@drawable/interest"
                 >
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textLongMessage"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/white"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -147,10 +147,10 @@
                 android:gravity="center"
                 android:text="Click the image below to select an image"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 android:textAllCaps="false"
                 android:textSize="16sp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 />
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -160,7 +160,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="40dp"
                 android:id="@+id/select_image"
-                app:civ_border_width="6dp"
+                app:civ_border_width="4dp"
                 app:civ_border_color="#FF000000"
                 />
 
@@ -181,7 +181,7 @@
                 android:layout_marginRight="16dp"
                 android:id="@+id/view_workers"
                 android:textSize="16dp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textStyle="italic"
                 android:layout_gravity="right"/>
 

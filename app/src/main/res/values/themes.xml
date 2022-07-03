@@ -3,7 +3,7 @@
     <style name="Theme.MyApplication" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#03A9F4</item>
-        <item name="colorPrimaryVariant">#03A9F4</item>
+        <item name="colorPrimaryVariant">#0F33E4</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
 

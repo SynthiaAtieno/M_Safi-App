@@ -5,18 +5,21 @@
       <map>
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/background.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/background2.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/background3.xml" value="0.144" />
+        <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/background4.xml" value="0.144" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/btn_color.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/login_backgroound.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/rounded.xml" value="0.1" />
-        <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_create_profile.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_create_profile.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_floating.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_image_upload.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_register.xml" value="0.33" />
-        <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_splash_screen.xml" value="0.19444444444444445" />
+        <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_splash_screen.xml" value="0.17" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_update_profile.xml" value="0.27291666666666664" />
-        <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_welcome.xml" value="0.1" />
-        <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_home.xml" value="0.12771739130434784" />
+        <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_welcome.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_profile.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_settings.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_share.xml" value="0.27291666666666664" />

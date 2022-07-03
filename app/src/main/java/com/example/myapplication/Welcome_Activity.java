@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 
 public class Welcome_Activity extends AppCompatActivity {
 
-    Button view, create, getStarted;
+    Button create, getStarted;
     RelativeLayout relativeLayout;
 
 
@@ -19,7 +19,6 @@ public class Welcome_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        view = findViewById(R.id.view_workers);
         create = findViewById(R.id.create_profile);
         getStarted = findViewById(R.id.get_started);
 
@@ -27,22 +26,7 @@ public class Welcome_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Welcome_Activity.this,Login.class));
-            }
-        });
-
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Login.class));
-
-            }
-        });
-
-        create.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), CreateProfile.class));
-                overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_right);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
     }

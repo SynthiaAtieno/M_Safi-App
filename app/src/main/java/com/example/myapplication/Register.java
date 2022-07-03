@@ -29,7 +29,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Register extends AppCompatActivity {
     Button regbtn;
-    TextView have_account, create_profile;
+    TextView have_account;
     TextInputLayout email, password, con_pass;
 
     private FirebaseAuth mAuth;
@@ -55,16 +55,16 @@ public class Register extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         con_pass = findViewById(R.id.confirm_password);
-        create_profile=findViewById(R.id.create_profile);
+        /*create_profile=findViewById(R.id.create_profile);
 
         create_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),CreateProfile.class));
                 finish();
-                overridePendingTransition(R.anim.push_up_in, R.anim.push_down_in);
+                overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_left);
             }
-        });
+        });*/
 
         regbtn.setOnClickListener(new View.OnClickListener() {
             @Override
