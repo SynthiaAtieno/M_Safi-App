@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.app.SearchManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -24,33 +25,19 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class HomeFragment extends Fragment {
-
+/*
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
     private String mParam1;
-    private String mParam2;
+    private String mParam2;*/
     RecyclerView recyclerView;
     MainAdapter mainAdapter;
     Toolbar toolbar;
-    private SearchView searchView;
-    private MenuItem menuItem;
     FloatingActionButton actionButton;
     public HomeFragment(){
 
     }
-
-   /* public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1,param1);
-        args.putString(ARG_PARAM2,param2);
-
-        fragment.setArguments(args);
-        return fragment;
-
-    }*/
-
 
     @Nullable
     @Override
@@ -65,6 +52,13 @@ public class HomeFragment extends Fragment {
         activity.getSupportActionBar().setTitle("Swipe Right");
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        actionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(),FloatingActivity.class));
+            }
+        });
 
         FirebaseRecyclerOptions<Employee> options= new FirebaseRecyclerOptions.Builder<Employee>()
                 .setQuery(FirebaseDatabase.getInstance().getReference().child("Employees"), Employee.class)
@@ -85,8 +79,8 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.menu1, menu);
-        menuItem = menu.findItem(R.id.search_id);
-        searchView= (SearchView) MenuItemCompat.getActionView(menuItem);
+        MenuItem menuItem = menu.findItem(R.id.search_id);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
         searchView.setIconified(true);
 
         SearchManager searchManager= (SearchManager) getActivity().getSystemService(getContext().SEARCH_SERVICE);
@@ -105,12 +99,12 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        actionButton.setOnClickListener(new View.OnClickListener() {
+        /*actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
-        });
+        });*/
 
         super.onCreateOptionsMenu(menu, inflater);
     }

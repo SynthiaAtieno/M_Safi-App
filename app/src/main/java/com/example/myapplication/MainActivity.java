@@ -29,8 +29,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-
+import com.google.firebase.database.DatabaseReference;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -42,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     FrameLayout frameLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     FirebaseAuth mAuth;
+    String uid;
+    FirebaseUser user;
+    DatabaseReference databaseReference;
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -57,17 +59,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         drawerLayout = findViewById(R.id.drawer_layout);
-        mAuth = FirebaseAuth.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        mAuth= FirebaseAuth.getInstance();
+        uid= user.getUid();
         verify_text = findViewById(R.id.verify_message);
         verify_account = findViewById(R.id.verify_account);
         frameLayout = findViewById(R.id.fragment_container);
-       // toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-/*
-        AnimationDrawable animationDrawable = (AnimationDrawable) drawerLayout.getBackground();
-        animationDrawable.setEnterFadeDuration(2500);
-        animationDrawable.setExitFadeDuration(5000);
-        animationDrawable.start();*/
+
 
         navigationView = findViewById(R.id.navigation_view);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.menu_open, R.string.menu_close);
@@ -81,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        FirebaseUser user = mAuth.getCurrentUser();
+        user = mAuth.getCurrentUser();
 
         if (!user.isEmailVerified())
         {

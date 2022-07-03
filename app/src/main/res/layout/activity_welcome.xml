@@ -8,28 +8,29 @@
     android:orientation="vertical"
     android:id="@+id/welcome_activity"
     android:gravity="top"
+    android:background="@drawable/background4"
     tools:context=".Welcome_Activity">
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:id="@+id/linear"
         android:gravity="center"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:id="@+id/welcome"
-            android:textStyle="bold"
+            android:textStyle="bold|italic"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
             android:text="Welcome to M-safi App"
-            android:textColor="@color/black"/>
+            android:textColor="@color/white"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_marginTop="24dp"
             android:src="@drawable/login_image"
             android:layout_gravity="center_horizontal"/>
@@ -42,8 +43,10 @@
             android:id="@+id/aim"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:text="How can we assist you??"
-            android:textColor="@color/black"/>
+            android:gravity="center"
+            android:textStyle="bold|italic"
+            android:text="Finding Casual Workers Made Easier, Just a Phone Call Away"
+            android:textColor="@color/white"/>
 
         <Button
             android:id="@+id/get_started"
@@ -58,39 +61,4 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linear"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/view_workers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/linear"
-
-            android:background="@drawable/background"
-            android:text="View Workers"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/create_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/linear"
-            android:layout_marginStart="31dp"
-
-            android:layout_toEndOf="@+id/view_workers"
-
-            android:background="@drawable/background"
-            android:text="create profile"
-            android:textAllCaps="false" />
-    </LinearLayout>
 </RelativeLayout>

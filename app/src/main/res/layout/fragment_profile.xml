@@ -99,7 +99,7 @@
                 android:layout_marginTop="24dp"
                 app:endIconMode="clear_text"
                 android:hint="Current Location"
-                app:startIconDrawable="@drawable/ic_baseline_add_location_24"
+                app:startIconDrawable="@drawable/location"
                 >
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"

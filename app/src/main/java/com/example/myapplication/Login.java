@@ -73,7 +73,7 @@ public class Login extends AppCompatActivity {
                 else {
 
 
-                    progressDialog.setMessage("Please wait...");
+                    progressDialog.setMessage("Signing In...");
                     progressDialog.show();
                     progressDialog.setCanceledOnTouchOutside(false);
                     loginUser();
@@ -112,7 +112,7 @@ public class Login extends AppCompatActivity {
                         });
                     }
                 });
-                passwordReset.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                passwordReset.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
