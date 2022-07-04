@@ -20,12 +20,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     String uid;
     FirebaseUser user;
+    BottomNavigationView bottomNavigationView;
     DatabaseReference databaseReference;
 
     @Override
@@ -68,9 +72,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         navigationView = findViewById(R.id.navigation_view);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.menu_open, R.string.menu_close);
+        bottomNavigationView = findViewById(R.id.bottom_nav);
+          actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.menu_open, R.string.menu_close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
+
+
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -88,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
             verify_account.setVisibility(View.VISIBLE);
             navigationView.setVisibility(View.GONE);
             frameLayout.setVisibility(View.GONE);
+
 
 
             verify_account.setOnClickListener(new View.OnClickListener() {
@@ -110,20 +118,37 @@ public class MainActivity extends AppCompatActivity {
             });
 
         }
+
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+              switch (item.getItemId()){
+                  case R.id.nav_home:
+                      getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                              new HomeFragment()).commit();
+
+                      break;
+
+              }
+                return true;
+            }
+        });
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
-                    case R.id.nav_home:
+                    case R.id.Help_and_Feedback:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                                new HomeFragment()).commit();
+                                new HelpFragment()).commit();
 
                         break;
 
-                    /*case R.id.nav_search:
+                    case R.id.about_nav:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                                new SearchFragment()).commit();
-                        break;*/
+                                new AboutFragment()).commit();
+                        break;
 
                     case R.id.nav_settings:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -139,10 +164,6 @@ public class MainActivity extends AppCompatActivity {
                         myIntent.putExtra(Intent.EXTRA_SUBJECT, sharesub);
                         myIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
                         startActivity(Intent.createChooser(myIntent, "Share Via"));
-                        break;
-
-                    case R.id.nav_donate:
-                        Toast.makeText(MainActivity.this, "Donate", Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.nav_login:

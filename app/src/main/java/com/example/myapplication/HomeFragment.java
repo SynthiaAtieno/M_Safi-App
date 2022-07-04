@@ -9,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -56,7 +57,8 @@ public class HomeFragment extends Fragment {
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(),FloatingActivity.class));
+                Toast.makeText(activity, "clicked", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getActivity(),FloatingActivity.class));
             }
         });
 

@@ -8,22 +8,23 @@
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#03A9F4"
-            android:elevation="4dp"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="#03A9F4"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="2dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="-20dp"
         tools:listitem="@layout/main_item" />
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnOpenDialog"
@@ -32,11 +33,11 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="21dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginRight="27dp"
+        android:layout_marginBottom="25dp"
         android:src="@drawable/profile"
         android:tint="#fff" />
+
 
 </RelativeLayout>
