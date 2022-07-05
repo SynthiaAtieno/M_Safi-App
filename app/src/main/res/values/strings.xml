@@ -6,5 +6,14 @@
     <string name="chat">Chat</string>
     <string name="home">Home</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="faq">FAQ</string>
+    <string name="what_is_the_application_all_about">What is the application all about?</string>
+    <string name="settings_background_app_management_deselect_the_app"><![CDATA[Settings > Background app management > Deselect the app]]></string>
+    <string name="app_info">APP INFO</string>
+    <string name="go_to">Go to:</string>
+    <string name="lenovo">Lenovo</string>
+    <string name="settings_device_maintenance_battery_unmonitored_apps_add_apps"><![CDATA[Settings > Device Maintenance > Battery > Unmonitored Apps > Add Apps]]></string>
+    <string name="samsung">Samsung</string>
+    <string name="how_can_one_set_up_the_application_on_different_platforms">How can one set up the application on different platforms?</string>
+    <string name="this_application_is_designed_to_help_employers_locate_casual_workers_easily_anf_efficiently">This application is designed to help employers locate casual workers easily anf efficiently</string>
 </resources>
