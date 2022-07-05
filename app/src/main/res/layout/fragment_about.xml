@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background4"
+    tools:context=".AboutFragment">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/usafi_logo"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Just A call, Find Your Preferred Worker Near You"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This Application was created by :"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name : Synthia Ondeng"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        android:gravity="start"
+        android:textStyle="italic"
+        android:layout_marginStart="8dp"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email Address : ondengsynthia222@gmail.com"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        android:gravity="start"
+        android:textStyle="italic"
+        android:layout_marginStart="8dp"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NOTE"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        android:gravity="start"
+        android:textStyle="bold"
+        android:layout_marginStart="8dp"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Finding this app interesting, give it a good rating and share with your friends"
+        android:textColor="@color/black"
+        android:layout_marginTop="18dp"
+        android:gravity="start"
+        android:textStyle="italic"
+        android:layout_marginStart="8dp"
+        android:textSize="18sp"/>
+</LinearLayout>

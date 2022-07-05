@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:orientation="vertical"
+    android:background="@drawable/background4"
+    tools:context=".HelpFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/faq"
+        android:textSize="24sp"
+        android:textColor="#0D41FB"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/what_is_the_application_all_about"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/this_application_is_designed_to_help_employers_locate_casual_workers_easily_anf_efficiently"
+        android:textSize="14sp"
+        android:textColor="#000000"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textStyle="italic"
+        android:layout_marginTop="14dp"
+
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/how_can_one_set_up_the_application_on_different_platforms"
+        android:textSize="14sp"
+        android:textColor="#000000"
+        android:layout_marginTop="14dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/samsung"
+        android:textSize="14sp"
+        android:textColor="#000000"
+        android:layout_marginTop="6dp"
+        android:layout_gravity="start"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go to:"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:layout_marginTop="8dp"
+        android:textStyle="italic"
+        android:layout_gravity="start"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_device_maintenance_battery_unmonitored_apps_add_apps"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="start"
+        android:textStyle="italic"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lenovo"
+        android:textSize="14sp"
+        android:textColor="#000000"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="start"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/go_to"
+        android:textSize="14sp"
+        android:textColor="#000000"
+        android:layout_marginTop="8dp"
+        android:textStyle="italic"
+        android:layout_gravity="start"
+        />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_background_app_management_deselect_the_app"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="start"
+        android:textStyle="italic"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_info"
+        android:textSize="24sp"
+        android:textColor="#8D020305"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        />
+
+
+
+</LinearLayout>

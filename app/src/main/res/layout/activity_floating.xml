@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:id="@+id/fragment_profile"
+    android:gravity="center"
+    android:background="@drawable/background4"
+    android:layout_height="match_parent">
+    <!-- android:background="@drawable/gradient_list"-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="18sp"
+        android:id="@+id/aim"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:background="#099ADC"
+        android:text="Add a New Record"
+        android:textColor="@color/white"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:src="@drawable/usafi_logo"
+                android:layout_gravity="top"
+                android:layout_marginTop="24dp"
+                />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/full_name"
+                app:hintTextColor="@color/white"
+                android:textColorHint="@color/white"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginTop="24dp"
+                android:hint="Full Name "
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/user"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:inputType="text"
+                    android:textColor="@color/white"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/phone"
+                app:hintTextColor="@color/white"
+                android:textColorHint="@color/white"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginTop="24dp"
+                android:hint="Mobile"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/phone"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:textColor="@color/white"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/email"
+                app:hintTextColor="@color/white"
+                android:textColorHint="@color/white"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginTop="24dp"
+                android:hint="Email Address"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/email"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/white"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/location"
+                app:hintTextColor="@color/white"
+                android:textColorHint="@color/white"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginTop="24dp"
+                app:endIconMode="clear_text"
+                android:hint="Current Location, Use your nearest center"
+                app:startIconDrawable="@drawable/location"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textLongMessage"
+                    android:textColor="@color/white"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/description"
+                app:hintTextColor="@color/white"
+                android:textColorHint="@color/white"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginTop="24dp"
+                app:endIconMode="clear_text"
+                android:hint="Area of Interest eg Laundry"
+                app:startIconDrawable="@drawable/interest"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textLongMessage"
+                    android:textColor="@color/white"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_view"
+                android:gravity="center"
+                android:text="Click the image below to select an image"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/register"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:id="@+id/select_image"
+                app:civ_border_width="4dp"
+                app:civ_border_color="#FF000000"
+                />
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/save"
+                android:text="Save"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:textAllCaps="false"
+                android:background="@drawable/background"
+                />
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/back"
+                android:text="Back"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:textAllCaps="false"
+                android:background="@drawable/background"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
