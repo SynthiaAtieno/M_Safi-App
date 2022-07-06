@@ -9,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,6 +24,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class HomeFragment extends Fragment {
@@ -36,6 +40,12 @@ public class HomeFragment extends Fragment {
     MainAdapter mainAdapter;
     Toolbar toolbar;
     FloatingActionButton actionButton;
+    /*DatabaseReference databaseReference,fvrtref,fvrt_list;*/
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+
+
+    Employee employee;
     public HomeFragment(){
 
     }
@@ -76,6 +86,12 @@ public class HomeFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         super.onCreate(savedInstanceState);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String currentUser = user.getUid();
+       /* databaseReference = database.getReference("Employees");
+        fvrt_list = database.getReference("favoriteList").child(currentUser);*/
+
     }
 
     @Override
@@ -100,13 +116,6 @@ public class HomeFragment extends Fragment {
                 return true;
             }
         });
-
-        /*actionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });*/
 
         super.onCreateOptionsMenu(menu, inflater);
     }

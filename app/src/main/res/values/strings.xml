@@ -16,4 +16,6 @@
     <string name="samsung">Samsung</string>
     <string name="how_can_one_set_up_the_application_on_different_platforms">How can one set up the application on different platforms?</string>
     <string name="this_application_is_designed_to_help_employers_locate_casual_workers_easily_anf_efficiently">This application is designed to help employers locate casual workers easily anf efficiently</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

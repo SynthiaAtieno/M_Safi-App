@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingStart="16dp"
     android:orientation="vertical"
     android:background="@drawable/background4"
     tools:context=".AboutFragment">
@@ -19,7 +20,8 @@
         android:layout_height="wrap_content"
         android:text="Just A call, Find Your Preferred Worker Near You"
         android:textColor="@color/black"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/capellen"
         android:layout_gravity="center_horizontal"
         android:textSize="18sp"/>
 
@@ -38,7 +40,7 @@
         android:layout_height="wrap_content"
         android:text="Name : Synthia Ondeng"
         android:textColor="@color/black"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:gravity="start"
         android:textStyle="italic"
         android:layout_marginStart="8dp"
@@ -47,9 +49,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Email Address : ondengsynthia222@gmail.com"
+        android:text="Email Address : ondengsynthia2@email.com"
         android:textColor="@color/black"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:gravity="start"
         android:textStyle="italic"
         android:layout_marginStart="8dp"
@@ -62,7 +64,7 @@
         android:textColor="@color/black"
         android:layout_marginTop="16dp"
         android:gravity="start"
-        android:textStyle="bold"
+        android:textStyle="bold|italic"
         android:layout_marginStart="8dp"
         android:textSize="20sp"/>
     <TextView

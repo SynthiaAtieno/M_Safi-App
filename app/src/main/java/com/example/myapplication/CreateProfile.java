@@ -256,7 +256,7 @@ public class CreateProfile extends AppCompatActivity {
 
 
 
-                        Toast.makeText(CreateProfile.this, "Uploaded Succsefully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CreateProfile.this, "Saved Successfully", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), Login.class));
                         progressDialog.dismiss();
                     }

@@ -1,8 +1,6 @@
 package com.example.myapplication;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +18,6 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
@@ -32,12 +29,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainAdapter extends FirebaseRecyclerAdapter<Employee, MainAdapter.myViewHolder> {
 
-    /**
-     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
-     * {@link FirebaseRecyclerOptions} for configuration options.
-     *
-     * @param options
-     */
+   /* DatabaseReference favouriteref;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();*/
     public MainAdapter(@NonNull FirebaseRecyclerOptions<Employee> options) {
 
         super(options);
@@ -145,6 +138,46 @@ public class MainAdapter extends FirebaseRecyclerAdapter<Employee, MainAdapter.m
                 builder.show();
             }
         });
+       /* FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String currentUser = user.getUid();
+
+        final String postKey = getRef(position).getKey();
+
+
+        String name = getItem(position).getFname();
+        String mobile = getItem(position).getMobile();
+        String email = getItem(position).getEmail();
+        String location = getItem(position).getLocation();
+        String description = getItem(position).getDescription();
+        String url = getItem(position).getImage();
+
+        DatabaseReference databaseReference,fvrtref;
+
+        holder.favouriteChecker(postKey);
+        final Boolean[] fvrtChecker = {false};
+        holder.fvrt_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fvrtChecker[0] = true;
+                favouriteref.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (fvrtChecker.equals(true))
+                        {
+                            if (snapshot.child(postKey).hasChild(currentUser))
+                            {
+                                fvrtref.child()
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+        });*/
     }
 
     @NonNull
@@ -159,11 +192,13 @@ public class MainAdapter extends FirebaseRecyclerAdapter<Employee, MainAdapter.m
         CircleImageView img;
         TextView full_name, mobile_no, email_address,current_location,your_description;
         Button edit, delete, update;
+        //ImageButton fvrt_btn;
 
 
 
         public myViewHolder (@NonNull View itemView) {
             super(itemView);
+
 
             img = (CircleImageView)itemView.findViewById(R.id.circle_image);
 
@@ -178,12 +213,16 @@ public class MainAdapter extends FirebaseRecyclerAdapter<Employee, MainAdapter.m
             edit = itemView.findViewById(R.id.button_edit);
             delete = itemView.findViewById(R.id.button_delete);
             update = itemView.findViewById(R.id.update_btn);
+            //fvrt_btn = itemView.findViewById(R.id.favorite_border);
 
 
 
 
 
 
+        }
+
+        public void favouriteChecker(String postKey) {
         }
     }
 }

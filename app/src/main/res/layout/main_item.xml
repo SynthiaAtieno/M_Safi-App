@@ -100,7 +100,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_color"
                 android:text="Edit"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:visibility="visible" />
 
             <Button
                 android:id="@+id/button_delete"
@@ -110,7 +111,24 @@
                 android:layout_marginEnd="50dp"
                 android:background="@drawable/btn_color"
                 android:text="Delete"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:visibility="visible" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical|right"
+            android:layout_below="@id/circle_image"
+            >
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_favorite_border_24"
+                android:background="@android:color/transparent"
+                android:id="@+id/favorite_border"
+                android:padding="5dp"/>
+
         </LinearLayout>
 
     </RelativeLayout>

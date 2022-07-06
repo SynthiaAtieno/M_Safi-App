@@ -150,10 +150,10 @@ public class MainActivity extends AppCompatActivity {
                                 new AboutFragment()).commit();
                         break;
 
-                    case R.id.nav_settings:
+                    /*case R.id.nav_settings:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                                 new SettingsFragment()).commit();
-                        break;
+                        break;*/
 
                     case R.id.nav_share:
 

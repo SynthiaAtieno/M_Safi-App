@@ -9,23 +9,16 @@
             android:id="@+id/Help_and_Feedback"
             android:icon="@drawable/help"
             android:title="Help and Feedback" />
-
         <item
-            android:id="@+id/nav_profile"
-            android:icon="@drawable/profile"
-            android:title="Add profile" />
+            android:title="About"
+            android:id="@+id/about_nav"
+            android:icon="@drawable/about"
 
+            />
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/settings"
             android:title="Settings" />
-        <item
-            android:id="@+id/nav_search"
-            android:icon="@drawable/search"
-            android:title="Search"
-            app:showAsAction="always"
-
-           />
     </group>
 
     <group>
@@ -60,12 +53,4 @@
             </menu>
         </item>
     </group>
-
-    <item
-        android:title="About"
-        android:id="@+id/about_nav"
-        android:icon="@drawable/about"
-
-        />
-
 </menu>
