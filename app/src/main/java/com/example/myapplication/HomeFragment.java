@@ -67,7 +67,6 @@ public class HomeFragment extends Fragment {
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(activity, "clicked", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getActivity(),FloatingActivity.class));
             }
         });
