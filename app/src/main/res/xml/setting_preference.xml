@@ -12,8 +12,10 @@
     </PreferenceCategory>
     <PreferenceCategory
         android:title="General">
-        <SwitchPreference android:key="theme_preference"
+        <SwitchPreference android:key="NIGHT"
             android:defaultValue="false"
+            android:summaryOff="Night mode is deactivated"
+            android:summaryOn="Night mode is activated"
             android:title="Dark Theme"
             />
         <Preference

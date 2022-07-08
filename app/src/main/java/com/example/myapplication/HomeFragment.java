@@ -88,9 +88,6 @@ public class HomeFragment extends Fragment {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String currentUser = user.getUid();
-       /* databaseReference = database.getReference("Employees");
-        fvrt_list = database.getReference("favoriteList").child(currentUser);*/
-
     }
 
     @Override
