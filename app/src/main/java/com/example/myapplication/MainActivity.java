@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
     ActionBarDrawerToggle actionBarDrawerToggle;
     FirebaseAuth mAuth;
     String uid;
+    RelativeLayout ml;
+    FrameLayout main;
     FirebaseUser user;
     BottomNavigationView bottomNavigationView;
     DatabaseReference databaseReference;
@@ -70,6 +73,9 @@ public class MainActivity extends AppCompatActivity {
         verify_account = findViewById(R.id.verify_account);
         frameLayout = findViewById(R.id.fragment_container);
 
+        ml = findViewById(R.id.mlayout);
+        main = findViewById(R.id.mainfragment);
+
 
         navigationView = findViewById(R.id.navigation_view);
         bottomNavigationView = findViewById(R.id.bottom_nav);
@@ -84,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                     new HomeFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
+
 
 
         user = mAuth.getCurrentUser();
@@ -175,6 +182,10 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+    }
+
+    private void loadSettings(){
 
     }
 
