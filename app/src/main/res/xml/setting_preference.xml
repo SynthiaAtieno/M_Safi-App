@@ -6,6 +6,7 @@
             android:title="Orientation"
             android:key="ORIENTATION"
             android:defaultValue="false"
+            android:entries="@array/item_values"
             android:entryValues="@array/items"/>
 
     </PreferenceCategory>
