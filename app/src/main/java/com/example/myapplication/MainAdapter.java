@@ -192,7 +192,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<Employee, MainAdapter.m
         CircleImageView img;
         TextView full_name, mobile_no, email_address,current_location,your_description;
         Button edit, delete, update;
-        //ImageButton fvrt_btn;
+
 
 
 
@@ -220,9 +220,6 @@ public class MainAdapter extends FirebaseRecyclerAdapter<Employee, MainAdapter.m
 
 
 
-        }
-
-        public void favouriteChecker(String postKey) {
         }
     }
 }

@@ -12,7 +12,7 @@
     </PreferenceCategory>
     <PreferenceCategory
         android:title="General">
-        <SwitchPreference android:key="NIGHT"
+        <CheckBoxPreference android:key="NIGHT"
             android:defaultValue="false"
             android:summaryOff="Night mode is deactivated"
             android:summaryOn="Night mode is activated"
