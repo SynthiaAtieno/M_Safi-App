@@ -82,7 +82,6 @@ public class Preference extends PreferenceActivity {
                     }
                     ListPreference lpp = (ListPreference) prefs;
                     lpp.setSummary(lpp.getEntries()[lpp.findIndexOfValue(items)]);
-
                 }
                 return true;
             }
