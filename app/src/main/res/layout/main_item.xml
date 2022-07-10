@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="6dp"
     android:elevation="10dp"
-    android:id="@+id/card_view"
-    app:cardUseCompatPadding="true"
-    >
+    app:cardCornerRadius="6dp"
+    app:cardUseCompatPadding="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp"
         android:background="#C6FAF1F1"
-        >
+        android:padding="15dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/circle_image"
@@ -78,8 +76,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/location_text"
-            android:layout_marginTop="6dp"
             android:layout_marginStart="15dp"
+            android:layout_marginTop="6dp"
             android:layout_toEndOf="@+id/circle_image"
             android:text="Describe Yourself"
             android:textColor="@color/black"
@@ -114,20 +112,30 @@
                 android:textAllCaps="false"
                 android:visibility="visible" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical|right"
             android:layout_below="@id/circle_image"
-            >
-            <ImageButton
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical|right"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/call_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_favorite_border_24"
-                android:background="@android:color/transparent"
-                android:id="@+id/favorite_border"
-                android:padding="5dp"/>
+                android:layout_marginEnd="150dp"
+                android:background="@drawable/rounded"
+                android:text="Call" />
+
+             <ImageButton
+                 android:id="@+id/favorite_border"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:background="@android:color/transparent"
+                 android:padding="5dp"
+                 android:src="@drawable/ic_baseline_favorite_border_24" />
 
         </LinearLayout>
 

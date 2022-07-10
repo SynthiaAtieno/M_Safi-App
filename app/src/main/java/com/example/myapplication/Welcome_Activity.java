@@ -26,6 +26,7 @@ public class Welcome_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Welcome_Activity.this,Login.class));
+                finish();
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });

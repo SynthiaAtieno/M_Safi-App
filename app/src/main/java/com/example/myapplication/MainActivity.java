@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     FrameLayout frameLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     FirebaseAuth mAuth;
-    String uid;
+    //String uid;
     RelativeLayout ml;
     FrameLayout main;
     FirebaseUser user;
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         user = FirebaseAuth.getInstance().getCurrentUser();
         mAuth= FirebaseAuth.getInstance();
-        uid= user.getUid();
+//        uid= user.getUid();
         verify_text = findViewById(R.id.verify_message);
         verify_account = findViewById(R.id.verify_account);
         frameLayout = findViewById(R.id.fragment_container);
@@ -130,13 +130,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-              switch (item.getItemId()){
+              switch (item.getItemId()) {
                   case R.id.nav_home:
                       getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                               new HomeFragment()).commit();
 
                       break;
+                  case R.id.nav_chat:
+                      getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                              new ChatFragment()).commit();
+                      break;
 
+                  case R.id.nav_favourites:
+                      getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                              new FavoriteFragment()).commit();
+                      break;
               }
                 return true;
             }

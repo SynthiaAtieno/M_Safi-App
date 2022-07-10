@@ -1,7 +1,12 @@
 package com.example.myapplication;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -28,10 +35,8 @@ import java.util.Map;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainAdapter extends FirebaseRecyclerAdapter<Employee, MainAdapter.myViewHolder> {
-
-   /* DatabaseReference favouriteref;
-    FirebaseDatabase database = FirebaseDatabase.getInstance();*/
     public MainAdapter(@NonNull FirebaseRecyclerOptions<Employee> options) {
+
 
         super(options);
     }
@@ -81,13 +86,13 @@ public class MainAdapter extends FirebaseRecyclerAdapter<Employee, MainAdapter.m
                 update.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Map<String,Object> map = new HashMap<>();
+                        Map<String, Object> map = new HashMap<>();
                         map.put("fname", name.getEditText().getText().toString());
-                        map.put("email",email.getEditText().getText().toString());
+                        map.put("email", email.getEditText().getText().toString());
                         map.put("location", location.getEditText().getText().toString());
-                        map.put("description",desc.getEditText().getText().toString());
+                        map.put("description", desc.getEditText().getText().toString());
                         map.put("mobile", mobile.getEditText().getText().toString());
-                        map.put("image",image.getEditText().getText().toString());
+                        map.put("image", image.getEditText().getText().toString());
 
                         FirebaseDatabase.getInstance().getReference().child("Employees")
                                 .child(getRef(holder.getAbsoluteAdapterPosition()).getKey()).updateChildren(map)
@@ -102,7 +107,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<Employee, MainAdapter.m
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(holder.full_name.getContext(), "Error Occurred while updating"+e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(holder.full_name.getContext(), "Error Occurred while updating" + e.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 });
 
@@ -138,88 +143,64 @@ public class MainAdapter extends FirebaseRecyclerAdapter<Employee, MainAdapter.m
                 builder.show();
             }
         });
-       /* FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String currentUser = user.getUid();
 
-        final String postKey = getRef(position).getKey();
-
-
-        String name = getItem(position).getFname();
-        String mobile = getItem(position).getMobile();
-        String email = getItem(position).getEmail();
-        String location = getItem(position).getLocation();
-        String description = getItem(position).getDescription();
-        String url = getItem(position).getImage();
-
-        DatabaseReference databaseReference,fvrtref;
-
-        holder.favouriteChecker(postKey);
-        final Boolean[] fvrtChecker = {false};
-        holder.fvrt_btn.setOnClickListener(new View.OnClickListener() {
+        holder.makeCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fvrtChecker[0] = true;
-                favouriteref.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (fvrtChecker.equals(true))
-                        {
-                            if (snapshot.child(postKey).hasChild(currentUser))
-                            {
-                                fvrtref.child()
-                            }
-                        }
-                    }
+                final int REQUEST_CALL = 100;
+                String number = model.getMobile().trim();
+                if (number.length() > 0) {
+                    if (ContextCompat.checkSelfPermission(holder.full_name.getContext(), Manifest.permission.CALL_PHONE) !=
+                            PackageManager.PERMISSION_GRANTED) {
+                        ActivityCompat.requestPermissions((Activity) holder.full_name.getContext(), new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CALL);
+                    } else {
+                        String dial = "tel:" + number;
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
+                        Intent i = new Intent(Intent.ACTION_CALL);
+                        i.setData(Uri.parse(dial));
+                        view.getContext().startActivity(i);
                     }
-                });
+                } else {
+                    Toast.makeText(holder.full_name.getContext(), "No number found", Toast.LENGTH_SHORT).show();
+                }
+
             }
-        });*/
+        });
     }
-
     @NonNull
     @Override
     public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.main_item, parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.main_item, parent, false);
         return new myViewHolder(view);
     }
 
-    public class myViewHolder extends RecyclerView.ViewHolder{
+    public class myViewHolder extends RecyclerView.ViewHolder {
         CircleImageView img;
-        TextView full_name, mobile_no, email_address,current_location,your_description;
-        Button edit, delete, update;
+        TextView full_name, mobile_no, email_address, current_location, your_description;
+        Button edit, delete, update, makeCall;
 
 
-
-
-        public myViewHolder (@NonNull View itemView) {
+        public myViewHolder(@NonNull View itemView) {
             super(itemView);
 
 
-            img = (CircleImageView)itemView.findViewById(R.id.circle_image);
+            img = (CircleImageView) itemView.findViewById(R.id.circle_image);
 
             full_name = itemView.findViewById(R.id.full_name_text);
             mobile_no = itemView.findViewById(R.id.mobile_text);
             email_address = itemView.findViewById(R.id.email_text);
+            current_location = itemView.findViewById(R.id.location_text);
+            your_description = itemView.findViewById(R.id.desc_text);
 
-
-            current_location =itemView.findViewById(R.id.location_text);
-            your_description =itemView.findViewById(R.id.desc_text);
 
             edit = itemView.findViewById(R.id.button_edit);
             delete = itemView.findViewById(R.id.button_delete);
             update = itemView.findViewById(R.id.update_btn);
-            //fvrt_btn = itemView.findViewById(R.id.favorite_border);
-
-
-
-
+            makeCall = itemView.findViewById(R.id.call_btn);
 
 
         }
     }
+
 }
