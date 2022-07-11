@@ -30,17 +30,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class HomeFragment extends Fragment {
-/*
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    private String mParam1;
-    private String mParam2;*/
     RecyclerView recyclerView;
     MainAdapter mainAdapter;
     Toolbar toolbar;
     FloatingActionButton actionButton;
-    /*DatabaseReference databaseReference,fvrtref,fvrt_list;*/
     FirebaseDatabase database = FirebaseDatabase.getInstance();
 
 

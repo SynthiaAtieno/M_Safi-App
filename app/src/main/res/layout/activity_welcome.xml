@@ -25,7 +25,7 @@
             android:textStyle="bold|italic"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:text="Welcome to M-safi App"
+            android:text="Welcome to U-safi App"
             android:textColor="@color/white"/>
 
         <de.hdodenhof.circleimageview.CircleImageView

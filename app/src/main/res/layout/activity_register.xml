@@ -15,7 +15,7 @@
         android:textSize="18sp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
-        android:text="Create Account to view workers"
+        android:text="@string/register_as_employer"
         android:textColor="@color/white"/>
 
     <ScrollView
@@ -95,6 +95,15 @@
             android:textColor="@color/white"/>
 
     </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_marginTop="16dp"
+                android:text="Register as a worker"
+                android:layout_gravity="end"
+                android:id="@+id/register_worker_text_view"/>
 
     <Button
         android:layout_width="150dp"

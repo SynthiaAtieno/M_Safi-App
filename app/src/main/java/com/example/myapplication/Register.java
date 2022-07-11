@@ -29,7 +29,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Register extends AppCompatActivity {
     Button regbtn;
-    TextView have_account;
+    TextView have_account, register_worker;
     TextInputLayout email, password, con_pass;
 
     private FirebaseAuth mAuth;
@@ -40,11 +40,6 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        /*LinearLayout linearLayout = findViewById(R.id.main_layout);
-        AnimationDrawable animationDrawable = (AnimationDrawable) linearLayout.getBackground();
-        animationDrawable.setEnterFadeDuration(2500);
-        animationDrawable.setExitFadeDuration(5000);
-        animationDrawable.start();*/
 
 
         progressDialog = new ProgressDialog(this);
@@ -55,17 +50,17 @@ public class Register extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         con_pass = findViewById(R.id.confirm_password);
-        /*create_profile=findViewById(R.id.create_profile);
+        register_worker = findViewById(R.id.register_worker_text_view);
 
-        create_profile.setOnClickListener(new View.OnClickListener() {
+
+        register_worker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),CreateProfile.class));
+                startActivity(new Intent(getApplicationContext(),Register_Worker.class));
                 finish();
-                overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_left);
-            }
-        });*/
 
+            }
+        });
         regbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

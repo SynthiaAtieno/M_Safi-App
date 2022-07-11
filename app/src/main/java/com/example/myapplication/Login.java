@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -25,6 +26,12 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity {
     Button loginbtn;
@@ -32,17 +39,12 @@ public class Login extends AppCompatActivity {
     TextInputLayout email, password;
     ProgressDialog progressDialog;
     FirebaseAuth mAuth;
+    CheckBox login_as_a_worker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        /*LinearLayout linearLayout= findViewById(R.id.main_layout);
-        AnimationDrawable animationDrawable= (AnimationDrawable) linearLayout.getBackground();
-        animationDrawable.setEnterFadeDuration(2500);
-        animationDrawable.setExitFadeDuration(5000);
-        animationDrawable.start();*/
 
         progressDialog= new ProgressDialog(this);
         mAuth=FirebaseAuth.getInstance();
@@ -52,6 +54,16 @@ public class Login extends AppCompatActivity {
         dont_have_account = findViewById(R.id.do_not_have_an_account);
         email= findViewById(R.id.login_email);
         password = findViewById(R.id.login_password);
+
+        login_as_a_worker = findViewById(R.id.worker_login_checkbox);
+
+        login_as_a_worker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               startActivity(new Intent(getApplicationContext(),Worker_Login.class));
+               finish();
+            }
+        });
 
 
 
@@ -163,6 +175,59 @@ public class Login extends AppCompatActivity {
         String email_address = email.getEditText().getText().toString();
         String password_filed = password.getEditText().getText().toString();
 
+       /* DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Employees");
+        Query checkUser = reference.orderByChild("email").equalTo(email_address);
+
+        checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists())
+                {
+                    email.setError(null);
+                    email.setErrorEnabled(false);
+                    String phoneNoFromDb = snapshot.child(email_address).child("mobile").getValue(String.class);
+
+                    if (phoneNoFromDb.equals(password_filed)){
+
+                        email.setError(null);
+                        email.setErrorEnabled(false);
+
+                        String email = snapshot.child(email_address).child("email").getValue(String.class);
+                        String mobile = snapshot.child(email_address).child("mobile").getValue(String.class);
+                        String description = snapshot.child(email_address).child("description").getValue(String.class);
+                        String location = snapshot.child(email_address).child("location").getValue(String.class);
+                        String image = snapshot.child(email_address).child("image").getValue(String.class);
+                        String full_name = snapshot.child(email_address).child("fname").getValue(String.class);
+
+
+                        Intent intent = new Intent(getApplicationContext(),UserProfile.class);
+                        intent.putExtra("email", email);
+                        intent.putExtra("mobile", mobile);
+                        intent.putExtra("description", description);
+                        intent.putExtra("location", location);
+                        intent.putExtra("image", image);
+                        intent.putExtra("fname", full_name);
+                        startActivity(intent);
+                    }
+                    else {
+                        password.setError("Wrong password");
+                        password.requestFocus();
+                    }
+                }
+                else
+                {
+                    email.setError("No such user exist");
+                    email.requestFocus();
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });*/
+
         mAuth.signInWithEmailAndPassword(email_address, password_filed).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -173,7 +238,7 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(Login.this, "Login Successfully", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(Login.this, MainActivity.class));
                     finish();
-                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                    overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_right);
                 }
                 else
                 {

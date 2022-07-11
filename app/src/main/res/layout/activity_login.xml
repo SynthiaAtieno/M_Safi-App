@@ -14,7 +14,7 @@
         android:textSize="18sp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
-        android:text="Login to view workers"
+        android:text="Login as Employer"
         android:textColor="@color/white"/>
 
     <ScrollView
@@ -85,6 +85,33 @@
                 android:text="Forgot Password"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Login as a worker"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="5dp"
+                    android:textColor="@color/white"
+                    android:id="@+id/worker_login_checkbox"
+                    />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Login as employer"
+                    android:checked="true"
+                    android:layout_gravity="end"
+                    android:textColor="@color/white"
+                    android:id="@+id/employer_login_checkbox"
+                    />
+            </LinearLayout>
+
+
 
 
             <Button
