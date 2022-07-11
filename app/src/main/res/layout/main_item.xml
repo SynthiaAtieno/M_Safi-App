@@ -129,13 +129,13 @@
                 android:background="@drawable/rounded"
                 android:text="Call" />
 
-             <ImageButton
+             <!--<ImageButton
                  android:id="@+id/favorite_border"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:background="@android:color/transparent"
                  android:padding="5dp"
-                 android:src="@drawable/ic_baseline_favorite_border_24" />
+                 android:src="@drawable/ic_baseline_favorite_border_24" />-->
 
         </LinearLayout>
 

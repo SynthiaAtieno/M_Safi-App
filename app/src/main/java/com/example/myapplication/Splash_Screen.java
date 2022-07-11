@@ -42,7 +42,7 @@ public class Splash_Screen extends AppCompatActivity {
                 lottieAnimationView.animate().translationY(1400).setDuration(4000).setStartDelay(4000);
                 startActivity(new Intent(Splash_Screen.this, Welcome_Activity.class));
                 finish();
-                overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_right);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         }, 3000);
 

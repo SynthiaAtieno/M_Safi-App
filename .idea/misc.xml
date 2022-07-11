@@ -16,6 +16,7 @@
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/login_backgroound.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/rounded.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_create_profile.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_edit_profile.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_floating.xml" value="0.15" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_image_upload.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_login.xml" value="0.25" />
@@ -25,6 +26,7 @@
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_splash_screen.xml" value="0.17" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_update_profile.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_user_profile.xml" value="0.12749003984063745" />
+        <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_verify_phone_no.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_welcome.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_worker2.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_worker_login.xml" value="0.27291666666666664" />

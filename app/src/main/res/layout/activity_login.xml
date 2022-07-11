@@ -88,12 +88,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:orientation="horizontal">
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Login as a worker"
+                    android:text="Worker"
+                    android:layout_weight="1"
                     android:layout_marginStart="0dp"
                     android:layout_marginEnd="5dp"
                     android:textColor="@color/white"
@@ -103,7 +105,8 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Login as employer"
+                    android:text="Employer"
+                    android:layout_weight="1"
                     android:checked="true"
                     android:layout_gravity="end"
                     android:textColor="@color/white"
