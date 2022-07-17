@@ -53,6 +53,15 @@ public class Splash_Screen extends AppCompatActivity {
                     startActivity(new Intent(Splash_Screen.this, Welcome_Activity.class));
                     finish();
                 }
+
+                /*if (firebaseUser !=null){
+                    startActivity(new Intent(Splash_Screen.this, UserProfile.class));
+                    finish();
+                }
+                else {
+                    startActivity(new Intent(Splash_Screen.this, Welcome_Activity.class));
+                    finish();
+                }*/
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         }, 3000);
