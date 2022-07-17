@@ -51,10 +51,9 @@ public class HomeFragment extends Fragment {
 
         toolbar = view.findViewById(R.id.toolbar);
         actionButton = view.findViewById(R.id.btnOpenDialog);
-/*
         AppCompatActivity activity= (AppCompatActivity) getActivity();
         activity.setSupportActionBar(toolbar);
-        activity.getSupportActionBar().setTitle("Swipe Right");*/
+        activity.getSupportActionBar().setTitle("Swipe Right");
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
