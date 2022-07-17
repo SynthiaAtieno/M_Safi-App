@@ -58,7 +58,10 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-database:8.0.1'
     implementation 'com.orhanobut:dialogplus:1.11@aar'
 
+
+    implementation platform('com.google.firebase:firebase-bom:30.2.0')
     //implementation 'com.theartofdev.edmodo:android-image-cropper:2.4.*'
+//    compile 'com.theartofdev.edmodo:android-image-cropper:2.3.1'
     implementation 'com.squareup.picasso:picasso:2.71828'
 }
 apply plugin: 'com.google.gms.google-services'

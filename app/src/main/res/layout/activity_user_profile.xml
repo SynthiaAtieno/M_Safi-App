@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserProfile">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigation_view1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/header_menu"
+            app:menu="@menu/userm_menu">
+
+        </com.google.android.material.navigation.NavigationView>
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="#fece2f"
+            android:visibility="gone"
+            android:padding="20dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/image" />
+
+            <TextView
+                android:id="@+id/full_name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:includeFontPadding="false"
+                android:text="Synthia Atieno"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/email_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/full_name1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="Synthia Atieno"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:padding="20dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/full_name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:hint="Full Name "
+                android:textColorHint="@color/black"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/black"
+                app:startIconDrawable="@drawable/user">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phone"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:hint="Mobile"
+                android:textColorHint="@color/black"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/black"
+                app:startIconDrawable="@drawable/phone">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:hint="Email Address"
+                android:textColorHint="@color/black"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/black"
+                app:startIconDrawable="@drawable/email">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/location"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:hint="Current Location, Use your nearest center"
+                android:textColorHint="@color/black"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/black"
+                app:startIconDrawable="@drawable/location">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textLongMessage"
+                    android:textColor="@color/black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/description"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:hint="Area of Interest eg Laundry"
+                android:textColorHint="@color/black"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/black"
+                app:startIconDrawable="@drawable/interest">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textMultiLine"
+                    android:minLines="1"
+                    android:textColor="@color/black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/image"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:hint="Image"
+                android:textColorHint="@color/black"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/black"
+                app:startIconDrawable="@drawable/interest">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="text"
+                    android:textColor="@color/black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/update_btn"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#fece2f"
+                android:onClick="update"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Update" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    </ScrollView>
+
+
+
+</RelativeLayout>

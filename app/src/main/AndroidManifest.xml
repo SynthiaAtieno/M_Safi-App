@@ -18,11 +18,14 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".VerifyPhoneNo"
+            android:name=".VerifyOtp"
             android:exported="false" />
         <activity
-            android:name=".Edit_Profile"
+            android:name=".VerifyPhoneNo"
             android:exported="false" />
+       <!-- <activity
+            android:name=".Edit_Profile"
+            android:exported="false" />-->
         <activity
             android:name=".Worker_Login"
             android:exported="false" />
@@ -32,9 +35,11 @@
         <activity
             android:name=".Register_Worker"
             android:exported="false" />
-        <activity
+        <!--
+<activity
             android:name=".WorkerActivity2"
             android:exported="false" />
+        -->
         <activity
             android:name=".FloatingActivity"
             android:exported="false" />
