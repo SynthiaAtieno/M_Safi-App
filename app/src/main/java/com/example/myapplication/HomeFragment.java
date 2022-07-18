@@ -48,7 +48,7 @@ public class HomeFragment extends Fragment {
     }
 
 
-    public class CustomLinearLayoutManager extends LinearLayoutManager {
+    public static class CustomLinearLayoutManager extends LinearLayoutManager {
         public CustomLinearLayoutManager(Context context) {
             super(context);
         }
@@ -67,7 +67,7 @@ public class HomeFragment extends Fragment {
             try {
                 super.onLayoutChildren(recycler, state);
             } catch (IndexOutOfBoundsException e) {
-                Log.e("TAG", "meet a IOOBE in RecyclerView");
+                Log.e("TAG", "Inconsistency detected");
             }
         }
     }

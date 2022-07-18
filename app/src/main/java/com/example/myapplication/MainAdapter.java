@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -178,7 +179,8 @@ public class MainAdapter extends FirebaseRecyclerAdapter<Employee, MainAdapter.m
     public class myViewHolder extends RecyclerView.ViewHolder {
         CircleImageView img;
         TextView full_name, mobile_no, email_address, current_location, your_description;
-        Button edit, delete, update, makeCall;
+        Button edit, delete, update;
+        ImageButton makeCall;
 
 
         public myViewHolder(@NonNull View itemView) {
