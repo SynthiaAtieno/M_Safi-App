@@ -165,9 +165,25 @@ public class Worker_Login extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-                            Toast.makeText(Worker_Login.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), UserProfile.class));
+                        if (task.isSuccessful()) {
+                            FirebaseDatabase.getInstance().getReference("Employees")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            GlobalUser.currentUser = snapshot.getValue(Employee.class);
+                                            Toast.makeText(Worker_Login.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+                                            startActivity(new Intent(getApplicationContext(), UserProfile.class));
+                                            finish();
+
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                        }
+                                    });
+
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
