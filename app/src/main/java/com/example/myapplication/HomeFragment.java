@@ -47,7 +47,6 @@ public class HomeFragment extends Fragment {
 
     }
 
-
     public static class CustomLinearLayoutManager extends LinearLayoutManager {
         public CustomLinearLayoutManager(Context context) {
             super(context);

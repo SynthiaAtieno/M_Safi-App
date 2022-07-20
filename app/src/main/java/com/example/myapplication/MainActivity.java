@@ -136,11 +136,11 @@ public class MainActivity extends AppCompatActivity {
                               new HomeFragment()).commit();
 
                       break;
-                 /* *//*case R.id.nav_chat:
+                  case R.id.nav_chat:
                       getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                              new ChatFragment()).commit();*//*
+                              new ChatFragment()).commit();
                       break;
-*/
+
                   case R.id.nav_favourites:
                       getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                               new FavoriteFragment()).commit();
