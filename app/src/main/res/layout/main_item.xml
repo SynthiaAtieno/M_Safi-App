@@ -70,30 +70,52 @@
             android:text="Current Location"
             android:textColor="@color/black"
             android:textSize="10sp" />
+            <TextView
+                android:id="@+id/desc_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_weight="1"
+                android:layout_marginTop="6dp"
+                android:layout_below="@+id/location_text"
+                android:layout_toEndOf="@+id/circle_image"
+                android:text="Describe Yourself"
+                android:textColor="@color/black"
+                android:textSize="10sp" />
 
-        <TextView
-            android:id="@+id/desc_text"
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/location_text"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="6dp"
+            android:layout_below="@+id/circle_image"
+            android:layout_marginStart="-71dp"
+            android:layout_marginTop="12dp"
             android:layout_toEndOf="@+id/circle_image"
-            android:text="Describe Yourself"
-            android:textColor="@color/black"
-            android:textSize="10sp" />
+            android:orientation="horizontal"
+            android:weightSum="2">
 
-        <ImageButton
-            android:id="@+id/call_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/location_text"
-            android:layout_marginStart="110dp"
-            android:layout_marginTop="-12dp"
-            android:layout_toEndOf="@id/desc_text"
-            android:background="@android:color/transparent"
-            android:padding="5dp"
-            android:src="@drawable/phone" />
+            <ImageButton
+                android:id="@+id/call_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="110dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:padding="5dp"
+                android:src="@drawable/phone" />
+
+            <ImageButton
+                android:id="@+id/sms_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="110dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:padding="5dp"
+                android:src="@drawable/chat" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -129,11 +151,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/circle_image"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="38dp"
             android:gravity="center_vertical|right"
             android:orientation="horizontal">
 
-           <!-- <Button
+            <!-- <Button
                 android:id="@+id/call_btn"
                 android:layout_width="75dp"
                 android:layout_height="50dp"
@@ -143,9 +165,7 @@
                 android:text="Call" />-->
 
 
-
-
-          <!--  <ImageButton
+            <!--  <ImageButton
                  android:id="@+id/favorite_border"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
