@@ -3,10 +3,14 @@ package com.example.myapplication;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,10 +47,22 @@ public class MainAdapter extends FirebaseRecyclerAdapter<Employee, MainAdapter.m
 
         super(options);
     }
+   /* private  void load_settings()
+    {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean check_night = sp.getBoolean("NIGHT", false);
+        if (check_night) {
 
+        } else {
+
+
+        }
+    }
+*/
     @Override
     protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull Employee model) {
 
+        Context context = holder.itemView.getContext();
         holder.full_name.setText(model.getFname());
         holder.mobile_no.setText(model.getMobile());
         holder.email_address.setText(model.getEmail());
@@ -167,6 +185,20 @@ public class MainAdapter extends FirebaseRecyclerAdapter<Employee, MainAdapter.m
 
             }
         });
+
+        holder.mSms.setOnClickListener(view -> {
+
+
+            AppCompatActivity activity =(AppCompatActivity) view.getContext();
+            activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new ChatFragment()).commit();
+
+          /*  if (savedInstanceState == null) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new ChatFragment()).commit();
+                navigationView.setCheckedItem(R.id.nav_home);
+            }*/
+        });
     }
     @NonNull
     @Override
@@ -177,10 +209,11 @@ public class MainAdapter extends FirebaseRecyclerAdapter<Employee, MainAdapter.m
     }
 
     public class myViewHolder extends RecyclerView.ViewHolder {
+        CardView cardView;
         CircleImageView img;
         TextView full_name, mobile_no, email_address, current_location, your_description;
         Button edit, delete, update;
-        ImageButton makeCall;
+        ImageButton makeCall, mSms;
 
 
         public myViewHolder(@NonNull View itemView) {
@@ -189,6 +222,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<Employee, MainAdapter.m
 
             img = (CircleImageView) itemView.findViewById(R.id.circle_image);
 
+            cardView = itemView.findViewById(R.id.card_view);
             full_name = itemView.findViewById(R.id.full_name_text);
             mobile_no = itemView.findViewById(R.id.mobile_text);
             email_address = itemView.findViewById(R.id.email_text);
@@ -200,6 +234,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<Employee, MainAdapter.m
             delete = itemView.findViewById(R.id.button_delete);
             update = itemView.findViewById(R.id.update_btn);
             makeCall = itemView.findViewById(R.id.call_btn);
+            mSms = itemView.findViewById(R.id.sms_btn);
 
 
         }

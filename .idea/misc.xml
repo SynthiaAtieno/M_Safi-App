@@ -8,6 +8,7 @@
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/background3.xml" value="0.144" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/background4.xml" value="0.144" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/btn_color.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/chat.xml" value="0.207" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/email.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/favorite.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.1" />
@@ -33,9 +34,10 @@
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_worker2.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_worker_login.xml" value="0.22" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_about.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_chat.xml" value="0.22" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_favorite.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_help.xml" value="0.27291666666666664" />
-        <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_home.xml" value="0.189873417721519" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_profile.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_settings.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_share.xml" value="0.27291666666666664" />
