@@ -47,18 +47,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<Employee, MainAdapter.m
 
         super(options);
     }
-   /* private  void load_settings()
-    {
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean check_night = sp.getBoolean("NIGHT", false);
-        if (check_night) {
 
-        } else {
-
-
-        }
-    }
-*/
     @Override
     protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull Employee model) {
 
