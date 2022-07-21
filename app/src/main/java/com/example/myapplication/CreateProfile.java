@@ -202,7 +202,6 @@ public class CreateProfile extends AppCompatActivity {
         }
 
     }
-
     private boolean validateimageLink() {
         String phone_number = mobile.getEditText().getText().toString();
 
