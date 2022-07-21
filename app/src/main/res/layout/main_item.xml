@@ -155,24 +155,6 @@
             android:gravity="center_vertical|right"
             android:orientation="horizontal">
 
-            <!-- <Button
-                android:id="@+id/call_btn"
-                android:layout_width="75dp"
-                android:layout_height="50dp"
-                android:gravity="right"
-                android:layout_marginEnd="150dp"
-                android:background="@drawable/rounded"
-                android:text="Call" />-->
-
-
-            <!--  <ImageButton
-                 android:id="@+id/favorite_border"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:background="@android:color/transparent"
-                 android:padding="5dp"
-                 android:src="@drawable/ic_baseline_favorite_border_24" />
--->
         </LinearLayout>
 
     </RelativeLayout>
