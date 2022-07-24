@@ -34,9 +34,9 @@ import java.util.concurrent.TimeUnit;
 
 public class Worker_Login extends AppCompatActivity {
 
-    Button send_otp;
+    Button send_otp, loginbtn;
     TextView dont_have_account, forgotPassword;
-    TextInputLayout phone_number;
+    TextInputLayout email, phone;
     ProgressDialog progressDialog;
     FirebaseAuth mAuth;
     CheckBox login_as_employer;
@@ -53,29 +53,36 @@ public class Worker_Login extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         forgotPassword = findViewById(R.id.forgot_password);
 
-        send_otp = findViewById(R.id.send_otp_btn);
+        email = findViewById(R.id.login_email);
+        phone = findViewById(R.id.login_phone);
+        loginbtn = findViewById(R.id.login_btn);
+        dont_have_account = findViewById(R.id.do_not_have_an_account);
+
+        login_as_employer = findViewById(R.id.employer_login_checkbox);
+
+        /*send_otp = findViewById(R.id.send_otp_btn);
         dont_have_account = findViewById(R.id.do_not_have_an_account);
         phone_number = findViewById(R.id.phone_number_otp);
        // password = findViewById(R.id.login_password);
 
         otpno = findViewById(R.id.otp);
-        verify = findViewById(R.id.verify_otp_btn);
+        verify = findViewById(R.id.verify_otp_btn);*/
 
-        verify.setOnClickListener(new View.OnClickListener() {
+       /* verify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (TextUtils.isEmpty(otpno.getEditText().getText().toString())) {
                     Toast.makeText(Worker_Login.this, "Wrong Otp Entered", Toast.LENGTH_SHORT).show();
-                    
+
                 }
                 else{
                     verifyCode(otpno.getEditText().getText().toString());
                 }
 
             }
-        });
+        });*/
 
-    login_as_employer = findViewById(R.id.employer_login_checkbox);
+ /*   login_as_employer = findViewById(R.id.employer_login_checkbox);
         send_otp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,7 +96,7 @@ public class Worker_Login extends AppCompatActivity {
                     sendVerificationCode(number);
                 }
             }
-        });
+        });*/
 
         dont_have_account.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +113,7 @@ public class Worker_Login extends AppCompatActivity {
             }
         });
 
-       /* loginbtn.setOnClickListener(new View.OnClickListener() {
+        loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (!(!validatePassword() | !validateEmail())) {
@@ -116,10 +123,10 @@ public class Worker_Login extends AppCompatActivity {
                     progressDialog.setCanceledOnTouchOutside(false);
                 }
             }
-        });*/
+        });
     }
 
-    private void sendVerificationCode(String PhoneNumber) {
+/*    private void sendVerificationCode(String PhoneNumber) {
         PhoneAuthOptions options =
                 PhoneAuthOptions.newBuilder(mAuth)
                         .setPhoneNumber("+254"+PhoneNumber)
@@ -192,10 +199,10 @@ public class Worker_Login extends AppCompatActivity {
 
                     }
                 });
-    }
+    }*/
 
 
-   /* private boolean validateEmail() {
+    private boolean validateEmail() {
         String email_address = email.getEditText().getText().toString();
         if (email_address.isEmpty()) {
             email.setError("Please fill your email address");
@@ -211,16 +218,16 @@ public class Worker_Login extends AppCompatActivity {
     }
 
     private boolean validatePassword() {
-        String password_filed = password.getEditText().getText().toString();
+        String phone_number = phone.getEditText().getText().toString();
         String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
 
-        if (password_filed.isEmpty()) {
-            password.setError("Please fill your password");
-            password.requestFocus();
+        if (phone_number.isEmpty()) {
+            phone.setError("Please fill your password");
+            phone.requestFocus();
             return false;
         } else {
-            password.setError(null);
-            password.setErrorEnabled(false);
+            phone.setError(null);
+            phone.setErrorEnabled(false);
             return true;
         }
 
@@ -229,7 +236,7 @@ public class Worker_Login extends AppCompatActivity {
 
     private void loginUser() {
         String email_address = email.getEditText().getText().toString();
-        String password_filed = password.getEditText().getText().toString();
+        String phone_number = phone.getEditText().getText().toString();
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Employees");
         Query checkUser = reference.orderByChild("email").equalTo(email_address);
@@ -241,23 +248,25 @@ public class Worker_Login extends AppCompatActivity {
                 if (snapshot.exists()) {
                     email.setError(null);
                     email.setErrorEnabled(false);
-                    String phoneNoFromDb = snapshot.child(password_filed).child("mobile").getValue(String.class);
+                    String phoneNoFromDb = snapshot.child(phone_number).child("mobile").getValue(String.class);
 
                     progressDialog.dismiss();
-                    if (phoneNoFromDb.equals(password_filed)) {
+                    if (phoneNoFromDb.equals(phone_number)) {
 
                         email.setError(null);
                         email.setErrorEnabled(false);
 
-                        String email = snapshot.child(password_filed).child("email").getValue(String.class);
-                        String mobile = snapshot.child(password_filed).child("mobile").getValue(String.class);
-                        String description = snapshot.child(password_filed).child("description").getValue(String.class);
-                        String location = snapshot.child(password_filed).child("location").getValue(String.class);
-                        String image = snapshot.child(password_filed).child("image").getValue(String.class);
-                        String full_name = snapshot.child(password_filed).child("fname").getValue(String.class);
+                        String email = snapshot.child(phone_number).child("email").getValue(String.class);
+                        String mobile = snapshot.child(phone_number).child("mobile").getValue(String.class);
+                        String description = snapshot.child(phone_number).child("description").getValue(String.class);
+                        String location = snapshot.child(phone_number).child("location").getValue(String.class);
+                        String image = snapshot.child(phone_number).child("image").getValue(String.class);
+                        String full_name = snapshot.child(phone_number).child("fname").getValue(String.class);
 
 
-                        Intent intent = new Intent(getApplicationContext(), UserProfile.class);
+                        startActivity(new Intent());
+
+                        Intent intent = new Intent(getApplicationContext(), UserProfile1.class);
                         intent.putExtra("email", email);
                         intent.putExtra("mobile", mobile);
                         intent.putExtra("description", description);
@@ -267,22 +276,24 @@ public class Worker_Login extends AppCompatActivity {
                         startActivity(intent);
                     } else {
 
-                        password.setError("Wrong password");
-                        password.requestFocus();
+                        phone.setError("Wrong password");
+                        phone.requestFocus();
                     }
                 } else {
                     Toast.makeText(Worker_Login.this, "No such user exist", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
-                   *//* email.setError("No such user exist");
-                    email.requestFocus();*//*
+                    email.setError("No such user exist");
+                    email.requestFocus();
 
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(Worker_Login.this, error.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });
-    }*/
+    }
+
 }
