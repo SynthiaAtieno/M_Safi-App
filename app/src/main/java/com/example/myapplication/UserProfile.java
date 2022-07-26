@@ -17,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -33,6 +35,7 @@ public class UserProfile extends AppCompatActivity {
     Button update;
     Toolbar toolbar;
     ActionBarDrawerToggle actionBarDrawerToggle;
+    BottomNavigationView navigationView;
 
 
 
@@ -44,18 +47,18 @@ public class UserProfile extends AppCompatActivity {
     String user_location;
     String user_mobile ;
     String full_name ;
-    NavigationView navigationView;
+    //NavigationView navigationView;
     String user_desc ;
     String user_image;
 
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
+    }*/
     public static Context contextOfApplication;
     public static Context getContextOfApplication()
     {
@@ -67,23 +70,23 @@ public class UserProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
         drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.navigation_view1);
+//        navigationView = findViewById(R.id.navigation_view1);
+        navigationView= findViewById(R.id.bottom_nav1);
 
         contextOfApplication = getApplicationContext();
 
         mAuth= FirebaseAuth.getInstance();
         reference = FirebaseDatabase.getInstance().getReference("Employees");
 
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.menu_open, R.string.menu_close);
+       /* actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.menu_open, R.string.menu_close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.syncState();
+        actionBarDrawerToggle.syncState();*/
 
-        if (savedInstanceState == null) {
+       /* if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new UserFragment()).commit();
             navigationView.setCheckedItem(R.id.user_profile);
-        }
-
+        }*/
         email = findViewById(R.id.email);
         location = findViewById(R.id.location);
         mobile = findViewById(R.id.phone);
@@ -96,14 +99,60 @@ public class UserProfile extends AppCompatActivity {
          email_address = findViewById(R.id.email_address);
 
          showAllUserData();
+         navigationView.setSelectedItemId(R.id.nav_home);
 
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+         navigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+             @Override
+             public void onNavigationItemReselected(@NonNull MenuItem item) {
+                 switch (item.getItemId()) {
+                     case R.id.profile_nav:
+                         startActivity(new Intent(getApplicationContext(), Profile.class));
+                         overridePendingTransition(0,0);
+                         finish();
+                         break;
+                     case R.id.nav_home:
+                         return;
+
+                     case R.id.logout:
+                         mAuth.signOut();
+                         startActivity(new Intent(UserProfile.this, Worker_Login.class));
+                         finish();
+                         break;
+                 }
+             }
+         });
+
+        /*navigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId()) {
+                    case R.id.nav_home:
+                        startActivity(new Intent(getApplicationContext(), UserProfile.class));
+                        finish();
+
+                        break;
+                    case R.id.profile_nav:
+                        startActivity(new Intent(UserProfile.this,UserProfile.class));
+                        finish();
+                        break;
+
+                    case R.id.logout:
+                        mAuth.signOut();
+                        startActivity(new Intent(UserProfile.this, Worker_Login.class));
+                        finish();
+                        break;
+                }
+                return true;
+            }
+        });*/
+
+        /*navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.Help_and_Feedback:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                                new HelpFragment()).commit();
+                        startActivity(new Intent(getApplicationContext(), Help.class));
 
                         break;
                     case R.id.user_profile:
@@ -146,9 +195,8 @@ public class UserProfile extends AppCompatActivity {
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             }
-        });
+        });*/
     }
-
 
 
     private void showAllUserData() {

@@ -253,8 +253,10 @@ public class Worker_Login extends AppCompatActivity {
                     progressDialog.dismiss();
                     if (phoneNoFromDb.equals(phone_number)) {
 
+                        startActivity(new Intent(getApplicationContext(), Profile.class));
                         email.setError(null);
                         email.setErrorEnabled(false);
+
 
                         String email = snapshot.child(phone_number).child("email").getValue(String.class);
                         String mobile = snapshot.child(phone_number).child("mobile").getValue(String.class);
@@ -264,9 +266,8 @@ public class Worker_Login extends AppCompatActivity {
                         String full_name = snapshot.child(phone_number).child("fname").getValue(String.class);
 
 
-                        startActivity(new Intent());
 
-                        Intent intent = new Intent(getApplicationContext(), UserProfile1.class);
+                        Intent intent = new Intent(getApplicationContext(), UserProfile.class);
                         intent.putExtra("email", email);
                         intent.putExtra("mobile", mobile);
                         intent.putExtra("description", description);
@@ -276,7 +277,7 @@ public class Worker_Login extends AppCompatActivity {
                         startActivity(intent);
                     } else {
 
-                        phone.setError("Wrong password");
+                        phone.setError("Wrong phone number");
                         phone.requestFocus();
                     }
                 } else {
