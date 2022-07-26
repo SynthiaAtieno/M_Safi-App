@@ -6,16 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".UserProfile">
 
-    <androidx.drawerlayout.widget.DrawerLayout
+   <!-- <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
 
-        <FrameLayout
+       &lt;!&ndash; <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent" />&ndash;&gt;
 
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/navigation_view1"
@@ -24,36 +24,30 @@
             android:layout_gravity="start"
             android:fitsSystemWindows="true"
             app:headerLayout="@layout/header_menu"
+            android:background="@color/black"
             app:menu="@menu/userm_menu">
 
         </com.google.android.material.navigation.NavigationView>
-    </androidx.drawerlayout.widget.DrawerLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none">
-
-
-
+    </androidx.drawerlayout.widget.DrawerLayout>-->
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linear1"
         android:orientation="vertical">
 
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="200dp"
             android:background="#fece2f"
-            android:visibility="gone"
+
             android:padding="20dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_image"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/image" />
 
@@ -83,11 +77,16 @@
                 android:textStyle="bold" />
 
         </RelativeLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView"
+            android:scrollbars="none">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone"
+            android:id="@+id/linear"
             android:padding="20dp">
 
             <com.google.android.material.textfield.TextInputLayout
@@ -227,10 +226,20 @@
                 android:text="Update" />
 
         </LinearLayout>
+        </ScrollView>
 
 
     </LinearLayout>
-    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+
+        android:layout_width="match_parent"
+        android:id="@+id/bottom_nav1"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linear1"
+        android:layout_alignParentBottom="true"
+        android:background="#EDBE31"
+        app:menu="@menu/menu_profile" />
 
 
 
