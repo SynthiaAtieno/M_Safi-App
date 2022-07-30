@@ -6,7 +6,7 @@
     android:paddingStart="16dp"
     android:orientation="vertical"
     android:background="@drawable/background4"
-    tools:context=".AboutFragment">
+    tools:context="com.example.fragments.AboutFragment">
 
 
     <ImageView
