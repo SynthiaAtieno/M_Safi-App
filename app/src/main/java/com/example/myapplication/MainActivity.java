@@ -21,11 +21,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.fragments.AboutFragment;
+import com.example.fragments.ChatFragment;
+import com.example.fragments.FavoriteFragment;
+import com.example.fragments.HelpFragment;
+import com.example.fragments.HomeFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

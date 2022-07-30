@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.fragments;
 
 import android.app.SearchManager;
 import android.content.Context;
@@ -25,6 +25,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.Employee;
+import com.example.myapplication.FloatingActivity;
+import com.example.myapplication.MainAdapter;
+import com.example.myapplication.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -88,7 +92,7 @@ public class HomeFragment extends Fragment {
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(),FloatingActivity.class));
+                startActivity(new Intent(getActivity(), FloatingActivity.class));
             }
         });
 
