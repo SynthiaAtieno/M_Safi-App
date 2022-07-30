@@ -6,7 +6,7 @@
     android:paddingLeft="16dp"
     android:orientation="vertical"
     android:background="@drawable/background4"
-    tools:context=".HelpFragment">
+    tools:context="com.example.fragments.HelpFragment">
 
     <TextView
         android:layout_width="match_parent"
