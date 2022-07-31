@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/user_profile"
+            android:icon="@drawable/ic_baseline_person_24"
+            android:title="Profile" />
+
+        <item
+            android:id="@+id/Help_and_Feedback"
+            android:icon="@drawable/help"
+            android:title="Help and Feedback" />
+        <item
+            android:title="About"
+            android:id="@+id/about_nav"
+            android:icon="@drawable/about"
+
+            />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/settings"
+            android:title="Settings" />
+        <item
+            android:title="Edit Profile"
+            android:id="@+id/profile_nav"
+            android:icon="@drawable/profile"
+
+            />
+    </group>
+
+    <group>
+        <item android:title="Communicate">
+
+            <menu>
+                <group>
+                    <item
+                        android:id="@+id/nav_share"
+                        android:icon="@drawable/share"
+                        android:title="Share" />
+
+                </group>
+
+            </menu>
+
+
+        </item>
+
+    </group>
+
+    <group>
+        <item android:title="Authentication">
+
+            <menu>
+                <group>
+                    <item
+                        android:id="@+id/nav_login"
+                        android:icon="@drawable/logout"
+                        android:title="Logout" />
+                </group>
+            </menu>
+        </item>
+    </group>
+</menu>
