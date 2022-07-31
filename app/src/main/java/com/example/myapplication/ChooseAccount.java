@@ -29,12 +29,10 @@ public class ChooseAccount extends AppCompatActivity {
                 if (txt.equals("Worker"))
                 {
                     startActivity(new Intent(getApplicationContext(), Worker_Login.class));
-                    finish();
                 }
                 else if (txt.equals("Employer"))
                 {
                     startActivity(new Intent(getApplicationContext(),Login.class));
-                    finish();
                 }
                 else
                 {
