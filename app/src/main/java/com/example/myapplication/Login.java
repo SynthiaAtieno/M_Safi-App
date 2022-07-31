@@ -39,7 +39,6 @@ public class Login extends AppCompatActivity {
     TextInputLayout email, password;
     ProgressDialog progressDialog;
     FirebaseAuth mAuth;
-    CheckBox login_as_a_worker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,18 +53,6 @@ public class Login extends AppCompatActivity {
         dont_have_account = findViewById(R.id.do_not_have_an_account);
         email= findViewById(R.id.login_email);
         password = findViewById(R.id.login_password);
-
-        login_as_a_worker = findViewById(R.id.worker_login_checkbox);
-
-        login_as_a_worker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               startActivity(new Intent(getApplicationContext(),Worker_Login.class));
-               finish();
-            }
-        });
-
-
 
         dont_have_account.setOnClickListener(new View.OnClickListener() {
             @Override
