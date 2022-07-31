@@ -25,7 +25,7 @@ public class Welcome_Activity extends AppCompatActivity {
         getStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Welcome_Activity.this,Login.class));
+                startActivity(new Intent(Welcome_Activity.this,ChooseAccount.class));
                 finish();
                 overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_right);
             }
