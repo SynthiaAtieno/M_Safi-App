@@ -39,9 +39,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="#fece2f"
-
+            android:layout_height="180dp"
             android:padding="20dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -218,7 +216,7 @@
             <Button
                 android:id="@+id/update_btn"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="#fece2f"
+                android:backgroundTint="#035377"
                 android:onClick="update"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
@@ -238,8 +236,10 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/linear1"
         android:layout_alignParentBottom="true"
-        android:background="#EDBE31"
-        app:menu="@menu/menu_profile" />
+        android:layout_below="@id/scrollView"
+        android:background="#035377"
+        app:menu="@menu/menu_profile"
+        tools:ignore="NotSibling" />
 
 
 
