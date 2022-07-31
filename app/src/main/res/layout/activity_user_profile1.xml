@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_relativeLayout"
-    tools:context=".UserFragment">
+    android:padding="24dp"
+    tools:context=".UserProfile1">
 
 
     <de.hdodenhof.circleimageview.CircleImageView
