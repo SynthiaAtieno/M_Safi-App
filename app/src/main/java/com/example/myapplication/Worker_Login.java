@@ -39,7 +39,6 @@ public class Worker_Login extends AppCompatActivity {
     TextInputLayout email, phone;
     ProgressDialog progressDialog;
     FirebaseAuth mAuth;
-    CheckBox login_as_employer;
     String verificatioID;
     MainModel mainModel;
     TextInputLayout otpno;
@@ -58,7 +57,6 @@ public class Worker_Login extends AppCompatActivity {
         loginbtn = findViewById(R.id.login_btn);
         dont_have_account = findViewById(R.id.do_not_have_an_account);
 
-        login_as_employer = findViewById(R.id.employer_login_checkbox);
 
         /*send_otp = findViewById(R.id.send_otp_btn);
         dont_have_account = findViewById(R.id.do_not_have_an_account);
@@ -105,13 +103,6 @@ public class Worker_Login extends AppCompatActivity {
             }
         });
 
-        login_as_employer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Login.class));
-                finish();
-            }
-        });
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override

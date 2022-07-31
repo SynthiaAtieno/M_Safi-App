@@ -91,6 +91,7 @@
         <entry key="app/src/main/res/layout/activity_user_profile.xml" value="0.2630208333333333" />
         <entry key="app/src/main/res/layout/activity_user_profile1.xml" value="0.2630208333333333" />
         <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.2630208333333333" />
+        <entry key="app/src/main/res/layout/activity_worker_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2630208333333333" />
       </map>
     </option>
