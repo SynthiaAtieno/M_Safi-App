@@ -19,4 +19,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="register_as_employer">Register as Employer</string>
+
+    <string-array name="Accounts">
+        <item>Choose Account</item>
+        <item>Worker</item>
+        <item>Employer</item>
+    </string-array>
 </resources>
