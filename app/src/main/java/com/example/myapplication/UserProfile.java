@@ -10,6 +10,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -22,8 +23,11 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -74,6 +78,10 @@ public class UserProfile extends AppCompatActivity {
         navigationView= findViewById(R.id.bottom_nav1);
 
         contextOfApplication = getApplicationContext();
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("Employees");
+        DatabaseReference userRef = rootRef.child("Employees");
+
+
 
         mAuth= FirebaseAuth.getInstance();
         reference = FirebaseDatabase.getInstance().getReference("Employees");
@@ -100,6 +108,35 @@ public class UserProfile extends AppCompatActivity {
 
          showAllUserData();
          navigationView.setSelectedItemId(R.id.nav_home);
+        Log.v("USERID", userRef.getKey());
+
+         userRef.addValueEventListener(new ValueEventListener() {
+             String fullname, location1, description, emailAddress, mobileNo;
+             @Override
+             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                 for (DataSnapshot keyId: snapshot.getChildren())
+                 {
+                     if (keyId.child("email").getValue().equals(email)){
+                         fullname = keyId.child("fname").getValue(String.class);
+                         location1 = keyId.child("location").getValue(String.class);
+                         description = keyId.child("description").getValue(String.class);
+                         emailAddress = keyId.child("email").getValue(String.class);
+                         mobileNo = keyId.child("mobile").getValue(String.class);
+                         break;
+                     }
+                 }
+                 fname.getEditText().setText(fullname);
+                 desc.getEditText().setText(description);
+                 mobile.getEditText().setText(mobileNo);
+                 location.getEditText().setText(location1);
+                 email.getEditText().setText(emailAddress);
+             }
+
+             @Override
+             public void onCancelled(@NonNull DatabaseError error) {
+                 Log.w("Failed to read value", error.toException());
+             }
+         });
 
          navigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
              @Override
