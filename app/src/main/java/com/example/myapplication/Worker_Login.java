@@ -100,6 +100,7 @@ public class Worker_Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),Register_Worker.class));
+                finish();
             }
         });
 
