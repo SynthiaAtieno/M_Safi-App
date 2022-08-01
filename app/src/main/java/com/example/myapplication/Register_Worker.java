@@ -18,9 +18,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -29,12 +34,15 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 public class Register_Worker extends AppCompatActivity {
-    TextInputLayout email, location, mobile, fname, description;
+    TextInputLayout email, location, mobile, fname, description, passwordtxt;
     TextView viewWokers;
     ProgressDialog progressDialog;
-    FirebaseDatabase rootNode;
-    DatabaseReference reference;
+    FirebaseDatabase database;
+    DatabaseReference mDatabase;
     MainModel mainModel;
+    private FirebaseAuth mAuth;
+    private String User;
+
 
     ImageView select_image;
     Uri imguri;
@@ -55,6 +63,9 @@ public class Register_Worker extends AppCompatActivity {
         description = findViewById(R.id.description);
         create_profile = findViewById(R.id.create_profile);
         select_image = findViewById(R.id.select_image);
+        passwordtxt = findViewById(R.id.password);
+        mAuth = FirebaseAuth.getInstance();
+
 
         progressDialog = new ProgressDialog(this);
 
@@ -91,7 +102,7 @@ public class Register_Worker extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (!validateEmail() | !validatePhone() | !validateLocation() | !validateFullName() | !validatedescription()) {
-                    Toast.makeText(Register_Worker.this, "Please select image", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(Register_Worker.this, "Please select image", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
                     return;
                 } else {
@@ -240,14 +251,15 @@ public class Register_Worker extends AppCompatActivity {
                     @Override
                     public void onSuccess(Uri uri) {
 
-                        rootNode = FirebaseDatabase.getInstance();
+                        database = FirebaseDatabase.getInstance();
                        // reference = rootNode.getReference("Users");
-                        reference = rootNode.getReference("Employees");
+                        mDatabase = database.getReference("Employees");
 
                         String full_name = fname.getEditText().getText().toString();
                         String email_address = email.getEditText().getText().toString();
                         String c_location = location.getEditText().getText().toString();
                         String desc = description.getEditText().getText().toString();
+                        String passwod = passwordtxt.getEditText().getText().toString();
                         String mob = mobile.getEditText().getText().toString();
 
                        /* Intent intent = new Intent(getApplicationContext(), VerifyPhoneNo.class);
@@ -255,9 +267,8 @@ public class Register_Worker extends AppCompatActivity {
                         startActivity(intent);*/
 
                         mainModel = new MainModel(full_name, email_address, c_location, desc, mob, uri.toString());
-                        reference.child(mob).setValue(mainModel);
-
-
+                        //reference.child(mob).setValue(mainModel);
+                        registerUser();
                         Toast.makeText(Register_Worker.this, "Saved Successfully", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), Login.class));
                         progressDialog.dismiss();
@@ -286,5 +297,31 @@ public class Register_Worker extends AppCompatActivity {
         ContentResolver cr = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cr.getType(uri));
+    }
+
+    public void registerUser()
+    {
+        String emailtxt = email.getEditText().getText().toString();
+        String password = passwordtxt.getEditText().getText().toString();
+        mAuth.createUserWithEmailAndPassword(emailtxt,password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful())
+                        {
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            updateUI(user);
+                        }
+                        else
+                        {
+                            Toast.makeText(Register_Worker.this, "Authentication Failed",  Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    private void updateUI(FirebaseUser user) {
+        String keyId = mDatabase.push().getKey();
+        mDatabase.child(keyId).setValue(user);
     }
 }
