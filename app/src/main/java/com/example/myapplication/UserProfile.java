@@ -106,7 +106,7 @@ public class UserProfile extends AppCompatActivity {
          profile = findViewById(R.id.profile_image);
          email_address = findViewById(R.id.email_address);
 
-         showAllUserData();
+       //  showAllUserData();
          navigationView.setSelectedItemId(R.id.nav_home);
         Log.v("USERID", userRef.getKey());
 

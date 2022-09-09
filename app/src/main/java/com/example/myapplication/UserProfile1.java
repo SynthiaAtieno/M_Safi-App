@@ -18,6 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -46,7 +47,7 @@ public class UserProfile1 extends AppCompatActivity {
     MainModel mainModel;
     ProgressDialog progressDialog;
     String uid;
-    TextView fullname, emailtv, locationtv, descrtv,mobiletv;
+    TextView fullname, emailtv, locationtv, descrtv, mobiletv;
     CircleImageView profile;
 
     @Override
@@ -66,8 +67,31 @@ public class UserProfile1 extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         uid = mAuth.getCurrentUser().getUid().toString();
-        databaseReference = FirebaseDatabase.getInstance().getReference("Employees");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Employees").child(FirebaseAuth.getInstance().getCurrentUser()
+                .getUid());
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String name = snapshot.child("fname").getValue().toString();
+                fullname.setText(name);
+                String email = snapshot.child("email").getValue().toString();
+                emailtv.setText(email);
+                String desc = snapshot.child("description").getValue().toString();
+                descrtv.setText(desc);
+                String location = snapshot.child("location").getValue().toString();
+                locationtv.setText(location);
+                String mobile = snapshot.child("mobile").getValue().toString();
+                mobiletv.setText(mobile);
+                String imageurl = snapshot.child("image").getValue().toString();
+                Glide.with(getApplicationContext()).load(imageurl).into(profile);
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+/*
 
         if (!uid.isEmpty())
         {
@@ -150,11 +174,10 @@ public class UserProfile1 extends AppCompatActivity {
         ContentResolver cr = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cr.getType(uri));
+    }*/
+
+
     }
-
-
-
-
 }
 
 

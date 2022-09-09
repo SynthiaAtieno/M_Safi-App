@@ -55,12 +55,10 @@
         <item android:title="Authentication">
 
             <menu>
-                <group>
                     <item
                         android:id="@+id/nav_login"
                         android:icon="@drawable/logout"
                         android:title="Logout" />
-                </group>
             </menu>
         </item>
     </group>
