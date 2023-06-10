@@ -1,5 +1,5 @@
 # MyApplication
-
+#This project is build to help mama fuas and casual worker get a ccess to manual jobs easily and link the with their potential employers
 ## Demo
 <p float="left">
 <img src="screenshots/splash_screen.png" width=250/>
