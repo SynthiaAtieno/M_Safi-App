@@ -12,7 +12,6 @@ import com.example.myapplication.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link HelpFragment#newInstance} factory method to
  */
 public class HelpFragment extends Fragment {
 
