@@ -60,6 +60,7 @@ public class ChatFragment extends Fragment {
          });
         return view;
     }
+    //method to send message
 
     private void sendMessage() {
         String number = phone_num.getText().toString().trim();
